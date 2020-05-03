@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-image: url(http://dreamicus.com/data/beer/beer-02.jpg);
+    font-family:  'Roboto Condensed', sans-serif;
 }
 
 /*-----------------------------HEADER---------------------*/
@@ -12,15 +13,16 @@ header {
     width: 100%;
     height: 10em;
     background-color: rgb(31, 31, 31);
+    opacity: 0.9;
     display: flex;
     border-bottom: 1px #ffaf11 solid;
 }
-#divLogo1 {
+#div-logo1 {
     width: 17%;
     height: 90%;
     margin: 1%;
 }
-#divLogo2 {
+#div-logo2 {
     width: 75%;
     height: 90%;
 }
@@ -32,7 +34,7 @@ header {
     margin: 0% 0% 0% 22%;
 }
 header nav {
-    margin-top: 2.65%;
+    margin-top: 15px;
 }
 header a {
     color: aliceblue;
@@ -55,7 +57,7 @@ article {
     width: 80%;
     margin: 5% 9.5%;
     border: 1px solid #ffaf11;
-    background-color: antiquewhite;
+    background-color: rgba(245, 227, 194, 0.9);
 }
 article h1 {
     width: 25%;
@@ -68,10 +70,10 @@ article h1 {
     text-shadow: 2px 2px 2px black;
     border-bottom: 1px rgba(0, 0, 0, 0.301) solid;
 }
-.divArticle {
+.div-article {
     display: flex;
 }
-article div div {
+.div-variedad-cerveza {
     width: 40%;
     margin-bottom: 2%;
     border-right: 1px rgba(0, 0, 0, 0.301) solid;
@@ -109,8 +111,9 @@ article p span {
 
 footer {
     background-color: rgb(31, 31, 31);
+    opacity: 0.9;
 }
-.divDeArribaDelFooter {
+.main-footer {
     display: flex;
     justify-content: center;
     border-top: 1px #ffaf11 solid;
@@ -127,23 +130,23 @@ footer h3 {
 footer li {
     list-style: none;
 }
-footer .divDeArribaDelFooter a, footer .divDeArribaDelFooter p {
+footer .main-footer a, footer .main-footer p {
     
     text-decoration: none;
     color: white;
     text-shadow: 2px 2px black;
 }
-footer .divDeArribaDelFooter a:hover {
+footer .main-footer a:hover {
     color: #ffaf11;
 }
-footer .redSocial img {
+footer .red-social-icon img {
     width: 5%;
 }
-footer .redSocial img:hover {
+footer .red-social-icon img:hover {
     width: 6%;
 }
 
-footer .divDeAbajoDelFooter p {
+footer .footer-company-name p {
     border-top: 1px #ffaf11 solid;
     width: 50%;
     padding: 1% 0;
