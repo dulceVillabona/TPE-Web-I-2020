@@ -167,6 +167,9 @@ table, td, tr {
     text-align: center;
 }
 th, td img {
-    width: 7em;
+    width: 8em;
     background-color: #ffaf11;
+}
+th {
+    padding: 1.5% 0;
 }
