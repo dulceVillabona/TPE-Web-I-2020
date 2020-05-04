@@ -145,11 +145,28 @@ footer .red-social-icon img {
 footer .red-social-icon img:hover {
     width: 6%;
 }
-
 footer .footer-company-name p {
     border-top: 1px #ffaf11 solid;
     width: 50%;
     padding: 1% 0;
     margin: 2% 25% 0 25%;
     text-align: center;
+}
+
+
+/*----------------------------TABLA-------------------------*/
+
+
+table {
+    margin: 5% auto;
+}
+table, td, tr {
+    background-color: beige;
+    border: 1px black solid;
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td img {
+    width: 7em;
+    background-color: #ffaf11;
 }
