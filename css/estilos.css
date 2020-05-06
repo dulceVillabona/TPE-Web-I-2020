@@ -186,9 +186,88 @@ footer .footer-company-name p {
     text-align: center;
 }
 
+/*-----------------------------CONTACT---------------------*/
+
+#contact-div {
+    margin: -30px auto 0 auto;
+    height: 75vh;
+    background: rgba(206, 156, 49, 0.637);;
+    width: 70%;
+}
+
+#contact-div h2 {
+    text-align: center;
+    padding: 20px;
+    font-size: 35px;
+}
+
+#contact-div label {
+    display: block;
+    font-size: 20px;
+}
+
+#captcha-box {
+    width: 100px;
+    text-align: center;
+    height: 25px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+#captcha-answer {
+    width: 100px !important;
+    text-align: center;
+    font-size: 20px;
+}
+
+#contact-div input {
+    display: block;
+    width: 330px;
+    margin: 10px 0 25px 0;
+    height: 25px;
+    border: none;
+}
+
+#contact-form {
+    width: 80%;
+    margin: auto;
+}
+
+#submit-button {
+    border-radius: 5px;
+    width: 125px;
+    border: none;
+    height: 30px;
+    position: absolute;
+    bottom: 40px;
+    right: 260px;
+    font-family:  'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.error-message {
+    position: relative;
+    bottom: 48px;
+    left: 115px;
+    display: none;
+}
+
+#error-message {
+    position: relative;
+    bottom: 48px;
+    left: 115px;
+    visibility: hidden;
+}
+
+#error-message.show {
+    visibility: visible;
+
+}
 
 /*----------------------------TABLA-------------------------*/
-
 
 table {
     margin: 5% auto;
