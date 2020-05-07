@@ -1,9 +1,5 @@
 body {
     margin: 0;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-image: url(http://dreamicus.com/data/beer/beer-02.jpg);
     font-family:  'Roboto Condensed', sans-serif;
 }
 
@@ -11,43 +7,109 @@ body {
 
 header {
     width: 100%;
-    height: 10em;
-    background-color: rgb(31, 31, 31);
-    opacity: 0.9;
+    height: 20vh;
+    background-color: rgb(33, 32, 32);
     display: flex;
-    border-bottom: 1px #ffaf11 solid;
+}
+
+#nav-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header a {
+    color: white;
+    margin: 0;
+    text-decoration: none;
+    display: block;
+    height: 20px;
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+header a:hover {
+    border-bottom: 2px solid #ffaf11;
+    transition: width 0.5s linear 0.5s ;
 }
 #div-logo1 {
-    width: 17%;
-    height: 90%;
-    margin: 1%;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-#div-logo2 {
-    width: 75%;
-    height: 90%;
-}
+
 #logo1 {
     height: 90%;
 }
-#logo2 {
-    width: 40%;
-    margin: 0 0 0 22%;
-}
-header nav {
-    margin-top: 28px;
-}
-header a {
-    color: aliceblue;
-    padding: 0.77% 4%;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-decoration: none;
-}
-header a:hover, a:active {
-    border-bottom: 3px solid #ffaf11;
-    border-radius: 5px;
-    color: #ffaf11;
 
+/*-----------------------------HOME PAGE---------------------*/
+
+#div-logo2 {
+    width: 100%;
+    height: 80vh;
+    background-image: linear-gradient(to right bottom, rgba(33, 32, 32, 0.7), rgba(33, 32, 32, 0.8)), url("../img/pintsender.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#div-logo2 h1{
+    width: 70%;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    margin: 35px auto;
+    text-align: center;
+}
+
+#logo2 {
+    display: block;
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 55%;
+}
+
+.home-div {
+    width: 100%;
+}
+
+.home-section {
+    width: 100%;
+    height: 100vh;
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home-section:last-of-type {
+    height: 70vh;
+}
+
+.home-text {
+    width: 60%;
+}
+
+.home-text h2 {
+    font-size: 50px;
+    width: 80%;
+    margin: 50px 0 75px 40px;
+}
+
+.home-text p {
+    font-size: 25px;
+    width: 80%;
+    text-align: justify;
+    margin-left: 40px;
+}
+
+.home-section img {
+    width: 40%;
+    height: 415px;
+    align-self: center;
 }
 
 /*-----------------------------ARTICLE---------------------*/
@@ -140,28 +202,31 @@ article p span {
 /*-----------------------------FOOTER---------------------*/
 
 
-footer {
-    background-color: rgba(31, 31, 31, 0.9);
-}
-.main-footer {
+footer {    
+    background-color: rgb(33, 32, 32);
+    height: 30vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    border-top: 1px #ffaf11 solid;
 }
-.sub-main-footer {
+
+.sub-footer-div {
     width: 20%;
     margin: 0 4%;
 }
+
 footer h3 {
     color: white;
     text-align: center;
     border-bottom: 1px #ffaf11 solid;
 
 }
+
 footer li {
     list-style: none;
 }
-footer .main-footer p, .nav-del-footer {
+
+footer p, .nav-del-footer {
     text-decoration: none;
     color: white;
     text-shadow: 2px 2px black;
@@ -170,20 +235,20 @@ footer .main-footer p, .nav-del-footer {
 .nav-del-footer:hover {
     color: #ffaf11;
 }
+
+#icons-div {
+    width: 75%;
+    margin: auto;
+}
+
 footer .red-social-icon img {
     width: 20%;
     margin-left: 20px;
 }
+
 footer .red-social-icon:hover {
     opacity: 0.5;
     border: none;
-}
-footer .footer-company-name p {
-    border-top: 1px #ffaf11 solid;
-    width: 50%;
-    padding: 1% 0;
-    margin: 1% 25% 0 25%;
-    text-align: center;
 }
 
 /*-----------------------------CONTACT---------------------*/
