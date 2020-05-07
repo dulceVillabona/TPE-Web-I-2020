@@ -135,22 +135,8 @@ article h1 {
     justify-content: center;
     margin-bottom: 50px;
 }
-.div-variedad-cerveza {
-    width: 40%;
-    margin-bottom: 2%;
-    border-right: 1px rgba(0, 0, 0, 0.301) solid;
-}
 article a:hover, article a {
     text-decoration: none;
-}
-article .imagen-de-cerveza {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    width: 50%;
-    height: 240px;
-    border: 1px rgba(0, 0, 0, 0.301) solid;
-    background-color: white;
 }
 
 article h2, article h4, article p {
@@ -164,10 +150,6 @@ article h2 {
 article p {
     font-size: 20px;
     margin: 1% 0 0.5% 0;
-}
-article p span {
-    text-decoration: line-through;
-    color: rgba(71, 71, 71, 0.74);
 }
 #div-article-kit {
     display: flex;
@@ -395,4 +377,37 @@ th {
 
 .promo-text p {
     font-size: 25px;
+}
+
+/*----------------------------PRECIOS-------------------------*/
+
+.imagen-de-cerveza {
+    display: block;
+    height: 60%;
+    padding-right: 200px;
+    align-self: center;
+}
+
+.div-variedad-cerveza {
+    width: 100%;
+    height: 50vh;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.variedad-text {
+    width: 60%;
+    padding-left: 40px;
+}
+
+.variedad-text h2 {
+    font-size: 40px;
+}
+
+.variedad-text p {
+    font-size: 20px;
+    text-align: justify;
+    width: 85%;
 }
