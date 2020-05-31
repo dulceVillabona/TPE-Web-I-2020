@@ -1,59 +1,97 @@
 "use strict"
 
+
+
 let cervezas = [
     {
         "nombre": "American IPA",
-        "img": "src",
+        "img": "../img/American_IPA.png",
         "alcohol": "5.5-7.5 %",
         "IBU": "40.0-65.0",
         "OG": "1.056-1.075",
         "FG": "1.010-1.018"
     },{
         "nombre": "Belgian Stout",
-        "img": "src",
+        "img": "../img/Belgian-Stout.png",
         "alcohol": "6.0-7.5 %",
         "IBU": "20.0-30.0",
         "OG": "1.062-1.075",
         "FG": "1.008-1.016"
     },{
         "nombre": "Golden Ale",
-        "img": "src",
+        "img": "../img/Golden_Ale.png",
         "alcohol": "4.2-5.0 %",
         "IBU": "20.0-25.0",
         "OG": "1.041-1.050",
         "FG": "1.009-1.018"
     },{
         "nombre": "Honey",
-        "img": "src",
+        "img": "../img/Honey.PNG",
         "alcohol": "4.5-5.8 %",
         "IBU": "30.0-35.0",
         "OG": "1.050-1.060",
         "FG": "1.005-1.015"
     },{
         "nombre": "Irish Red",
-        "img": "src",
+        "img": "../img/Irish-Red.png",
         "alcohol": "8.0–12.0 %",
         "IBU": "50.0–85.0",
         "OG": "1.075 – 1.115",
         "FG": "1.018 – 1.030"
     },{
         "nombre": "Kölsch",
-        "img": "src",
+        "img": "../img/Kolsch.PNG",
         "alcohol": "3.5–5.0 %",
         "IBU": "18.0-30.0",
         "OG": "1.044–1.050",
         "FG": "1.007–1.011"
     }
 ];
+datos_precargados();
 
+function datos_precargados() {
+    for (let i = 0; i < 6; i++) {
+        let crearFila = document.createElement("TR");
+        let crearCelda1 = document.createElement("TD");
+        let textoCelda1 = document.createTextNode(cervezas[i].nombre);
+        let crearCelda2 = document.createElement("TD");
+        let crearIMG = document.createElement("IMG");
+        let imgAtt = document.createAttribute("src");
+        imgAtt.value = cervezas[i].img;
+        crearIMG.setAttributeNode(imgAtt);
+        let crearCelda3 = document.createElement("TD");
+        let textoCelda3 = document.createTextNode(cervezas[i].alcohol);
+        let crearCelda4 = document.createElement("TD");
+        let textoCelda4 = document.createTextNode(cervezas[i].IBU);
+        let crearCelda5 = document.createElement("TD");
+        let textoCelda5 = document.createTextNode(cervezas[i].OG);
+        let crearCelda6 = document.createElement("TD");
+        let textoCelda6 = document.createTextNode(cervezas[i].FG);
 
+        crearCelda1.appendChild(textoCelda1);
+        crearCelda2.appendChild(crearIMG);
+        crearCelda3.appendChild(textoCelda3);
+        crearCelda4.appendChild(textoCelda4);
+        crearCelda5.appendChild(textoCelda5);
+        crearCelda6.appendChild(textoCelda6);
 
+        crearFila.appendChild(crearCelda1);
+        crearFila.appendChild(crearCelda2);
+        crearFila.appendChild(crearCelda3);
+        crearFila.appendChild(crearCelda4);
+        crearFila.appendChild(crearCelda5);
+        crearFila.appendChild(crearCelda6);
+
+        crearFila.setAttribute("id", i)
+        document.getElementById("tabla-body").appendChild(crearFila);
+    }
+}
 
 
 document.getElementById("sumar-button").addEventListener("click", agregar_1_cerveza);
 document.getElementById("restar-button").addEventListener("click", restar_1_cerveza);
 document.getElementById("sumar-bucle-button").addEventListener("click", agregar_3_cervezas);
-document.getElementById("reset-button").addEventListener("click", resetear_cervezas_agregadas);
+document.getElementById("reset-button").addEventListener("click", resetear_cervezas);
 
 
 
@@ -84,7 +122,6 @@ function agregar_1_cerveza() {
 /* -----------------------------------PUSHEO LA CERVEZA AL ARRAY DE CERVEZAS------------------- */
 
     cervezas.push(cerveza);
-    console.log(cervezas[cervezas.length - 1].IBU);
 
 /* -----------------------------------CRÉO EL HTML Y SU CONTENIDO------------------- */
 
@@ -92,7 +129,8 @@ function agregar_1_cerveza() {
     let crearCelda1 = document.createElement("TD");
     let textoCelda1 = document.createTextNode(cervezas[cervezas.length - 1].nombre);
     let crearCelda2 = document.createElement("TD");
-    let textoCelda2 = document.createTextNode(cervezas[cervezas.length -1].img);
+    let imgCelda2 = document.createElement("IMG");
+    imgCelda2.setAttribute("src", cervezas[cervezas.length - 1].img);
     let crearCelda3 = document.createElement("TD");
     let textoCelda3 = document.createTextNode(cervezas[cervezas.length - 1].alcohol);
     let crearCelda4 = document.createElement("TD");
@@ -103,13 +141,13 @@ function agregar_1_cerveza() {
     let textoCelda6 = document.createTextNode(cervezas[cervezas.length - 1].FG);
 
 /* -------------------------------------ÚNO EL CONTENIDO AL HTML----------------- */
-
-    crearCelda1.appendChild(textoCelda1);
-    crearCelda2.appendChild(textoCelda2);
-    crearCelda3.appendChild(textoCelda3);
-    crearCelda4.appendChild(textoCelda4);
-    crearCelda5.appendChild(textoCelda5);
-    crearCelda6.appendChild(textoCelda6);
+    
+        crearCelda1.appendChild(textoCelda1);
+        crearCelda2.appendChild(imgCelda2);
+        crearCelda3.appendChild(textoCelda3);
+        crearCelda4.appendChild(textoCelda4);
+        crearCelda5.appendChild(textoCelda5);
+        crearCelda6.appendChild(textoCelda6);
     
 /* -------------------------------------ÚNO TODOS LOS "TD" AL "TR"----------------- */
 
@@ -123,9 +161,8 @@ function agregar_1_cerveza() {
 /* -------------------------------------INSERTO EL "TR" AL HTML DE LA TABLA
                                                 Y LE AGREGO UN ID-------------------- */
 
-    crearFila.setAttribute("id", cervezas.length)
+    crearFila.setAttribute("id", cervezas.length - 1)
     document.getElementById("tabla-body").appendChild(crearFila);
-
 
 
 }
@@ -134,7 +171,7 @@ function restar_1_cerveza() {
 
 /* -------------------------------------SELECCIONO AL ULTIMO "TR"----------------- */
 
-    let ultimoTR = document.getElementById(cervezas.length);
+    let ultimoTR = document.getElementById(cervezas.length - 1);
     
 /* -------------------------------------ELIMINO EL "TR" Y LA CERVEZA----------------- */
     
@@ -149,14 +186,13 @@ function agregar_3_cervezas() {
 
     for (let i = 0; i < bucle_number; i++) {
         agregar_1_cerveza();
-        console.log(cervezas[i]);
-        console.log(cervezas);
     }
 }
 
-function resetear_cervezas_agregadas() {
+function resetear_cervezas() {
 
-    for (let i = cervezas.lenght; i != 0; i--) {
+    for (let i = cervezas.length; i != 0; i--) {
+
         restar_1_cerveza();
     }
 
