@@ -1,12 +1,61 @@
 "use strict"
 
-let cervezas = [];
+let cervezas = [
+    {
+        "nombre": "American IPA",
+        "img": "src",
+        "alcohol": "5.5-7.5 %",
+        "IBU": "40.0-65.0",
+        "OG": "1.056-1.075",
+        "FG": "1.010-1.018"
+    },{
+        "nombre": "Belgian Stout",
+        "img": "src",
+        "alcohol": "6.0-7.5 %",
+        "IBU": "20.0-30.0",
+        "OG": "1.062-1.075",
+        "FG": "1.008-1.016"
+    },{
+        "nombre": "Golden Ale",
+        "img": "src",
+        "alcohol": "4.2-5.0 %",
+        "IBU": "20.0-25.0",
+        "OG": "1.041-1.050",
+        "FG": "1.009-1.018"
+    },{
+        "nombre": "Honey",
+        "img": "src",
+        "alcohol": "4.5-5.8 %",
+        "IBU": "30.0-35.0",
+        "OG": "1.050-1.060",
+        "FG": "1.005-1.015"
+    },{
+        "nombre": "Irish Red",
+        "img": "src",
+        "alcohol": "8.0–12.0 %",
+        "IBU": "50.0–85.0",
+        "OG": "1.075 – 1.115",
+        "FG": "1.018 – 1.030"
+    },{
+        "nombre": "Kölsch",
+        "img": "src",
+        "alcohol": "3.5–5.0 %",
+        "IBU": "18.0-30.0",
+        "OG": "1.044–1.050",
+        "FG": "1.007–1.011"
+    }
+];
+
+
+
 
 
 document.getElementById("sumar-button").addEventListener("click", agregar_1_cerveza);
 document.getElementById("restar-button").addEventListener("click", restar_1_cerveza);
 document.getElementById("sumar-bucle-button").addEventListener("click", agregar_3_cervezas);
-document.getElementById("reset-button").addEventListener("click", resetear_cervezas_agregadas)
+document.getElementById("reset-button").addEventListener("click", resetear_cervezas_agregadas);
+
+
 
 
 function agregar_1_cerveza() {
@@ -30,6 +79,7 @@ function agregar_1_cerveza() {
         "OG": OG_cerveza,
         "FG": FG_cerveza
     }
+    
 
 /* -----------------------------------PUSHEO LA CERVEZA AL ARRAY DE CERVEZAS------------------- */
 
@@ -99,8 +149,9 @@ function agregar_3_cervezas() {
 
     for (let i = 0; i < bucle_number; i++) {
         agregar_1_cerveza();
+        console.log(cervezas[i]);
+        console.log(cervezas);
     }
-    
 }
 
 function resetear_cervezas_agregadas() {
