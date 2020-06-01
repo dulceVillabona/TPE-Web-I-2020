@@ -36,8 +36,8 @@ let cervezas = [
         "img": "../img/Irish-Red.png",
         "alcohol": "8.0–12.0 %",
         "IBU": "50.0–85.0",
-        "OG": "1.075 – 1.115",
-        "FG": "1.018 – 1.030"
+        "OG": "1.075–1.115",
+        "FG": "1.018–1.030"
     },{
         "nombre": "Kölsch",
         "img": "../img/Kolsch.PNG",
