@@ -10,7 +10,7 @@
     />
     <title>Document</title>
   </head>
-  <body>
+  <body onload="cargarTabla()">
     <header>
       <div id="div-logo1-responsive">
         <img id="img-logo1-responsive" src="../img/LOGO_SIN_LETRAS2.png" alt="" />
@@ -32,67 +32,7 @@
     </header>
     <article id="table-article">
       <h2>TABLA DE COMPARACIÓN</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Cerveza</th>
-            <th>Color</th>
-            <th>Alcohol %</th>
-            <th>IBU</th>
-            <th>OG</th>
-            <th>FG</th>
-          </tr>
-        </thead>
-        <tbody id="tabla-body">
-          <tr>
-            <td>American IPA</td>
-            <td><img src="../img/American_IPA.png" alt="" /></td>
-            <td>5.5-7.5 %</td>
-            <td>40.0-65.0</td>
-            <td>1.056-1.075</td>
-            <td>1.010-1.018</td>
-          </tr>
-          <tr>
-            <td>Belgian Stout</td>
-            <td><img src="../img/Belgian-Stout.png" alt="" /></td>
-            <td>6.0-7.5 %</td>
-            <td>20.0-30.0</td>
-            <td>1.062-1.075</td>
-            <td>1.008-1.016</td>
-          </tr>
-          <tr>
-            <td>Golden Ale</td>
-            <td><img src="../img/Golden_Ale.png" alt="" /></td>
-            <td>4.2-5.0 %</td>
-            <td>20.0-25.0</td>
-            <td>1.041-1.050</td>
-            <td>1.009-1.018</td>
-          </tr>
-          <tr>
-            <td>Honey</td>
-            <td><img src="../img/Honey.PNG" alt="" /></td>
-            <td>4.5-5.8 %</td>
-            <td>30.0-35.0</td>
-            <td>1.050-1.060</td>
-            <td>1.005-1.015</td>
-          </tr>
-          <tr>
-            <td>Irish Red</td>
-            <td><img src="../img/Irish-Red.png" alt="" /></td>
-            <td>8.0–12.0 %</td>
-            <td>50.0–85.0</td>
-            <td>1.075 – 1.115</td>
-            <td>1.018 – 1.030</td>
-          </tr>
-          <tr>
-            <td>Kölsch</td>
-            <td><img src="../img/Kolsch.PNG" alt="" /></td>
-            <td>3.5–5.0 %</td>
-            <td>18.0-30.0</td>
-            <td>1.044–1.050</td>
-            <td>1.007–1.011</td>
-          </tr>
-        </tbody>
+      <table id="tabla-comparacion">
       </table>
       <h2>Edicion de Tabla Comparativa</h2>
       <form class="form" id="tabla-form">
