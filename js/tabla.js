@@ -36,6 +36,14 @@ let cervezas = [
     fg: "1.005-1.015",
   },
   {
+    name: "Imperial Stout",
+    imageSrc: "../img/Imperial_Stout.png",
+    alcohol: "",
+    ibu: "",
+    og: "",
+    fg: "",
+  },
+  {
     name: "Irish Red",
     imageSrc: "../img/Irish-Red.png",
     alcohol: "8.0–12.0 %",
@@ -56,7 +64,40 @@ let cervezas = [
 function cargarTabla() {
   let table = document.querySelector("#tabla-comparacion");
   table.innerHTML = "";
-  let header = table.createTHead();
+  let crearThead = document.createElement("THEAD");
+  let crearTR = document.createElement("TR");
+  let crearTH1 = document.createElement("TH");
+  let name = document.createTextNode("Cerveza");
+  let crearTH2 = document.createElement("TH");
+  let image = document.createTextNode("Color");
+  let crearTH3 = document.createElement("TH");
+  let alcohol = document.createTextNode("Alcohol");
+  let crearTH4 = document.createElement("TH");
+  let ibu = document.createTextNode("IBU");
+  let crearTH5 = document.createElement("TH");
+  let og = document.createTextNode("OG");
+  let crearTH6 = document.createElement("TH");
+  let fg = document.createTextNode("FG");
+
+  crearTH1.appendChild(name);
+  crearTH2.appendChild(image);
+  crearTH3.appendChild(alcohol);
+  crearTH4.appendChild(ibu);
+  crearTH5.appendChild(og);
+  crearTH6.appendChild(fg);
+
+  crearTR.appendChild(crearTH1);
+  crearTR.appendChild(crearTH2);
+  crearTR.appendChild(crearTH3);
+  crearTR.appendChild(crearTH4);
+  crearTR.appendChild(crearTH5);
+  crearTR.appendChild(crearTH6);
+
+  crearThead.appendChild(crearTR);
+
+  table.appendChild(crearThead);
+
+  /*let header = table.createTHead();
   let row = header.insertRow(0);
   let name = row.insertCell();
   let imageSrc = row.insertCell();
@@ -69,7 +110,7 @@ function cargarTabla() {
   alcohol.innerHTML = "Alcohol %";
   ibu.innerHTML = "IBU";
   og.innerHTML = "OG";
-  fg.innerHTML = "FG";
+  fg.innerHTML = "FG";*/
 
   let tableBody = table.createTBody();
   tableBody.id = "tabla-body";
@@ -103,7 +144,7 @@ let agregar_1_cerveza = () => {
 
   let nuevaCerveza = {
     name: inputs[0].value,
-    imageSrc: inputs[4].files[0].path,
+    imageSrc: inputs[4].value,
     alcohol: inputs[1].value,
     ibu: inputs[5].value,
     og: inputs[2].value,
@@ -129,7 +170,9 @@ function agregar_3_cervezas() {
 }
 
 function resetear_cervezas_agregadas() {
-  for (let i = cervezas.lenght; i != 0; i--) {
+  console.log(cervezas.length);
+  for (let i = cervezas.length; i > 0; i--) {
+    console.log(cervezas.length);
     restar_1_cerveza();
   }
 }
