@@ -43,6 +43,10 @@
           <input type="text" placeholder="%Alcohol.." id="beer-alcohol">
           <label for="OG">Rango de OG:</label>
           <input type="text" placeholder="Origin Gravity.." id="beer-OG">
+          <label for="IBU">Rango de IBU:</label>
+          <input type="text" placeholder="IBU.." id="beer-IBU">
+          <label for="FG">Rango de FG:</label>
+          <input type="text" placeholder="Finally Gravity" id="beer-FG">
           <button type="button" id="sumar-button">SUMAR 1</button>
           <div>
             <input type="number" id="bucle-number">
@@ -50,14 +54,25 @@
           </div>
         </section>
         <section class="tabla-form-section">
-        <label for="image">Direccion de Imagen:</label>
-        <input type="text" placeholder="../img/.." id="beer-image">
-        <label for="IBU">Rango de IBU:</label>
-        <input type="text" placeholder="IBU.." id="beer-IBU">
-        <label for="FG">Rango de FG:</label>
-        <input type="text" placeholder="Finally Gravity" id="beer-FG">
-        <button type="button" id="restar-button">RESTAR 1</button>
-        <button type="button" id="reset-button">VACIAR</button>
+          <label for="image">Seleccione una Imagen:</label>
+          <div id="seleccion-imagen-cerveza-tabla-form">
+            <img id="Kolsch" src="../img/Kolsch.PNG" alt="">
+            <img id="Honey" src="../img/Honey.PNG" alt="">
+            <img id="GoldenAle" src="../img/Golden_Ale.png" alt="">
+            <input class="radio" type="radio" name="cerveza" value="../img/Kolsch.PNG">
+            <input class="radio" type="radio" name="cerveza" value="../img/Honey.PNG">
+            <input class="radio" type="radio" name="cerveza" value="../img/Golden_Ale.png">
+            <img id="AmericanIPA" src="../img/American_IPA.png" alt="">
+            <img id="IrishRed" src="../img/Irish-Red.png" alt="">
+            <img id="BelgianStout" src="../img/Belgian-Stout.png" alt="">
+            <input class="radio" type="radio" name="cerveza" value="../img/American_IPA.png">
+            <input class="radio" type="radio" name="cerveza" value="../img/Irish-Red.png">
+            <input class="radio" type="radio" name="cerveza" value="../img/Belgian-Stout.png">
+          </div>
+          <label for="Stock">SIN STOCK</label>
+          <input id="sin-stock" type="checkbox">
+          <button type="button" id="restar-button">RESTAR 1</button>
+          <button type="button" id="reset-button">VACIAR</button>
         </section>
       </form>
     </article>

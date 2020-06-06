@@ -497,6 +497,8 @@ footer .red-social-icon:hover {
     ),
     url("../img/pintsender.jpg");
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
   width: 100%;
   padding-bottom: 50px;
@@ -527,7 +529,17 @@ th,
 td img {
   width: 5.5em;
 }
-
+#seleccion-imagen-cerveza-tabla-form {
+  margin-top: 3%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#tabla-form .tabla-form-section div .radio {
+  width: 30%;
+}
+#seleccion-imagen-cerveza-tabla-form img {
+  width: 30%;
+}
 th {
   padding: 1.5% 0;
 }

@@ -36,14 +36,6 @@ let cervezas = [
     fg: "1.005-1.015",
   },
   {
-    name: "Imperial Stout",
-    imageSrc: "../img/Imperial_Stout.png",
-    alcohol: "",
-    ibu: "",
-    og: "",
-    fg: "",
-  },
-  {
     name: "Irish Red",
     imageSrc: "../img/Irish-Red.png",
     alcohol: "8.0–12.0 %",
@@ -85,18 +77,18 @@ function cargarTabla() {
   crearTH4.appendChild(ibu);
   crearTH5.appendChild(og);
   crearTH6.appendChild(fg);
-
+  
   crearTR.appendChild(crearTH1);
   crearTR.appendChild(crearTH2);
   crearTR.appendChild(crearTH3);
   crearTR.appendChild(crearTH4);
   crearTR.appendChild(crearTH5);
   crearTR.appendChild(crearTH6);
-
+  
   crearThead.appendChild(crearTR);
-
+  
   table.appendChild(crearThead);
-
+  
   /*let header = table.createTHead();
   let row = header.insertRow(0);
   let name = row.insertCell();
@@ -111,18 +103,17 @@ function cargarTabla() {
   ibu.innerHTML = "IBU";
   og.innerHTML = "OG";
   fg.innerHTML = "FG";*/
-
+  
   let tableBody = table.createTBody();
   tableBody.id = "tabla-body";
-
-  for (let i = 0; i < cervezas.length; i++) {
-    let row = tableBody.insertRow();
-
-    for (key in cervezas[i]) {
-      let cell = row.insertCell();
-      if (key === "imageSrc") {
-        cell.innerHTML = `<img src=${cervezas[i][key]} alt=${cervezas[i].name} />`;
-      } else {
+  
+    for (let i = 0; i < cervezas.length; i++) {
+      let row = tableBody.insertRow();
+      for (key in cervezas[i]) {
+        let cell = row.insertCell();
+        if (key === "imageSrc") {
+          cell.innerHTML = `<img src=${cervezas[i][key]} alt=${cervezas[i].name} />`;
+        } else {
         cell.innerHTML = cervezas[i][key];
       }
     }
@@ -142,13 +133,21 @@ let agregar_1_cerveza = () => {
   let form = document.querySelector("#tabla-form");
   let inputs = form.querySelectorAll("input");
 
+
+  let imagen = document.querySelectorAll(".radio");
+  for (let i = 0; i < 6; i++) {
+    if (imagen[i].checked == true) {
+      imagenSeleccionada = imagen[i];
+    }
+  }
+
   let nuevaCerveza = {
-    name: inputs[0].value,
-    imageSrc: inputs[4].value,
-    alcohol: inputs[1].value,
-    ibu: inputs[5].value,
-    og: inputs[2].value,
-    fg: inputs[6].value
+    name: document.getElementById("beer-name").value,
+    imageSrc: imagenSeleccionada.value,
+    alcohol: document.getElementById("beer-alcohol").value,
+    ibu: document.getElementById("beer-IBU").value,
+    og: document.getElementById("beer-OG").value,
+    fg: document.getElementById("beer-FG").value
   };
   console.log(nuevaCerveza.imageSrc)
   cervezas.push(nuevaCerveza);
