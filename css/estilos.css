@@ -25,6 +25,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 #div-logo1 {
   display: none;
@@ -44,11 +45,16 @@ header {
   display: flex;
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> master
 }
 .no-show-nav {
   display: none;
 }
 .show-nav {
+<<<<<<< HEAD
   width: 100%;
   display: flex;
   height: 90vh;
@@ -56,6 +62,11 @@ header {
   justify-content: space-around;
   background-color: rgb(33, 32, 32);
   z-index: 1;
+=======
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+>>>>>>> master
 }
 header a:hover {
   color: #ffaf11;
@@ -63,6 +74,10 @@ header a:hover {
 }
 header a {
   width: 100%;
+<<<<<<< HEAD
+=======
+  background-color: rgb(33, 32, 32);
+>>>>>>> master
   text-decoration: none;
   text-align: center;
   padding: 5% 0;
@@ -70,6 +85,10 @@ header a {
   border-bottom: 1px solid rgb(33, 32, 32);
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 @media only screen and (min-width: 1000px) {
   header {
     width: 100%;
@@ -77,8 +96,12 @@ header a {
     background-color: rgb(33, 32, 32);
     display: flex;
   }
+<<<<<<< HEAD
   #div-logo1-responsive,
   #button-nav {
+=======
+  #div-logo1-responsive, #button-nav {
+>>>>>>> master
     display: none;
   }
   .no-show-nav {
@@ -90,7 +113,11 @@ header a {
     align-items: center;
     justify-content: space-around;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> master
   header a {
     color: white;
     margin: 0;
@@ -103,7 +130,11 @@ header a {
     padding: 10px 0px;
     text-transform: uppercase;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> master
   header a:hover {
     border-bottom: 2px solid #ffaf11;
     transition: width 0.5s linear 0.5s;
@@ -115,7 +146,11 @@ header a {
     justify-content: center;
     align-items: center;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> master
   #img-logo1 {
     height: 90%;
   }
@@ -124,6 +159,10 @@ header a {
   }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 /*-----------------------------FOOTER------------------------------------------------------*/
 
 footer {
@@ -213,6 +252,7 @@ footer .red-social-icon:hover {
   background-size: cover;
   display: grid;
   grid-template-columns: 100%;
+<<<<<<< HEAD
   grid-template-rows: 20vh 10vh;
 }
 #logo2 {
@@ -221,6 +261,20 @@ footer .red-social-icon:hover {
   padding-top: 7vh;
   width: 55%;
 }
+=======
+  grid-template-rows: 15vh 15vh;
+  grid-template-areas: 
+   "logo" 
+   "title";
+}
+#logo2 {
+  grid-area: "logo";
+  margin: 0 auto;
+  padding-top: 7vh;
+  width: 55%;
+  
+}  
+>>>>>>> master
 #div-logo2 h1 {
   grid-area: "title";
   width: 70%;
@@ -239,8 +293,13 @@ footer .red-social-icon:hover {
   grid-template-columns: 100%;
   grid-template-rows: 60vh 40vh;
   grid-template-areas:
+<<<<<<< HEAD
     "text"
     "img";
+=======
+   "text"
+   "img" ;
+>>>>>>> master
 }
 .home-text {
   grid-area: text;
@@ -260,6 +319,7 @@ footer .red-social-icon:hover {
   width: 80%;
 }
 
+<<<<<<< HEAD
 @media only screen and (min-width: 1000px) {
   #div-logo2 {
     height: 80vh;
@@ -270,6 +330,19 @@ footer .red-social-icon:hover {
     padding-top: 20vh;
   }
 
+=======
+
+@media only screen and (min-width: 1000px) {
+  #div-logo2 {
+    height: 80vh;
+    grid-template-rows: 50vh 30vh;
+  }
+
+  #logo2 {
+    padding-top: 20vh;
+  }
+
+>>>>>>> master
   #div-logo2 h1 {
     font-size: 30px;
   }
@@ -323,7 +396,11 @@ footer .red-social-icon:hover {
 }
 
 .tipo-de-cerveza {
+<<<<<<< HEAD
   width: 100%;
+=======
+  width: 60%;
+>>>>>>> master
   padding-left: 3%;
 }
 
@@ -345,6 +422,7 @@ footer .red-social-icon:hover {
 
 .imagen-de-cerveza {
   display: block;
+<<<<<<< HEAD
   height: 30%;
   align-self: center;
 }
@@ -370,6 +448,13 @@ footer .red-social-icon:hover {
     text-align: left;
   }
 }
+=======
+  height: 60%;
+  padding-right: 13%;
+  align-self: center;
+}
+
+>>>>>>> master
 /*----------------------------PACKS-------------------------------------------------------------------------*/
 
 #packs-title-div {
@@ -400,12 +485,19 @@ footer .red-social-icon:hover {
   border-bottom: 2px solid black;
   display: flex;
   flex-wrap: wrap;
+<<<<<<< HEAD
   flex-direction: column;
   justify-content: space-between;
 }
 
 .promo-text {
   width: 80%;
+=======
+}
+
+.promo-text {
+  width: 50%;
+>>>>>>> master
   padding-left: 4%;
 }
 
@@ -419,6 +511,7 @@ footer .red-social-icon:hover {
 }
 
 .promocion img {
+<<<<<<< HEAD
   align-self: center;
   padding-bottom: 20px;
 }
@@ -479,12 +572,14 @@ article p {
 
 article p {
   font-size: 20px;
+=======
+  width: 20%;
+  align-self: center;
+  padding-left: 180px;
+>>>>>>> master
 }
 
-#div-article-kit {
-  display: flex;
-  flex-direction: column;
-}
+/*-----------------------------KIT---------------------------------------------------------------------------*/
 
 #haz-tu-cerveza-div {
   width: 100%;
@@ -499,6 +594,7 @@ article p {
   background-size: cover;
 }
 
+<<<<<<< HEAD
 #haz-tu-propia-cerveza {
   border: none;
   width: 70%;
@@ -511,10 +607,39 @@ article p {
   width: 80%;
   margin: 35px auto 0 auto;
   font-size: 20px;
+=======
+#haz-tu-cerveza-img {
+  width: 45%;
+  display: block;
+  margin: auto;
+}
+
+.article-kit {
+  height: 100vh;
+  width: 100%;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.article-kit:last-of-type {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitulo-article-kit {
+  width: 60%;
+  margin: 5% auto 0 auto;
+  padding: 0 20%;
+  font-size: 40px;
+>>>>>>> master
   text-transform: uppercase;
 }
 
 .imagen-kit {
+<<<<<<< HEAD
   width: 65%;
 }
 
@@ -531,9 +656,42 @@ article p {
 #list-div {
   width: 75%;
   padding: 40px 0;
+=======
+  width: 30%;
+  margin: 8% 5%;
 }
 
-#list-div li {
+.section-article-kit {
+  width: 60%;
+  height: 30vh;
+  padding: 15vh 0;
+}
+
+.article-kit h2,
+.article-kit h4 {
+  text-align: center;
+  color: black;
+}
+
+.parrafos-del-kit {
+  width: 70%;
+  text-align: center;
+  font-size: 25px;
+  margin: 1% 15% 0.5% 15%;
+}
+
+#imagen-elementos-kit {
+  width: 35%;
+  margin: 5% auto 0 auto;
+}
+
+#section-list {
+  width: 60%;
+  margin: 0 auto 3% auto;
+>>>>>>> master
+}
+
+#section-list li {
   padding: 20px 0;
 }
 @media only screen and (min-width: 1000px) {
@@ -592,8 +750,14 @@ article p {
   width: 100%;
   padding-bottom: 50px;
 }
+<<<<<<< HEAD
 #table-article h2 {
   font-size: 20px;
+=======
+
+#table-article h2 {
+  font-size: 40px;
+>>>>>>> master
   text-align: center;
   padding: 40px;
   margin: 0;
@@ -645,7 +809,10 @@ th {
 
 #tabla-form {
   background-color: #ffb0114d;
+<<<<<<< HEAD
   padding: 5%;
+=======
+>>>>>>> master
   color: white;
   display: flex;
   justify-content: space-around;
@@ -656,6 +823,7 @@ th {
   align-items: center;
   flex-direction: column;
 }
+<<<<<<< HEAD
 #tabla-form .tabla-form-section input {
   width: 70%;
 }
@@ -776,6 +944,27 @@ input:checked + .slider:before {
 
 #contact-article {
   height: 75vh;
+=======
+.form .tabla-form-section input {
+  width: 70%;
+}
+.tabla-form-section button {
+  width: 30%;
+}
+.tabla-form-section div input{
+  width: 20%;
+}
+.tabla-form-section div {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/*-----------------------------CONTACT------------------------------------------------------------------------*/
+
+#contact-article {
+  height: 80vh;
+>>>>>>> master
   background-image: linear-gradient(
       to right bottom,
       rgba(204, 168, 104, 0.68),
@@ -794,6 +983,7 @@ input:checked + .slider:before {
 #contact-article h2 {
   text-align: center;
   padding: 20px;
+<<<<<<< HEAD
   font-size: 20px;
   margin: 0;
 }
@@ -816,6 +1006,30 @@ input:checked + .slider:before {
   border: none;
   color: black;
   padding-left: 5px;
+=======
+  font-size: 35px;
+  margin: 0;
+}
+
+.form {
+  width: 60%;
+  margin: auto;
+}
+
+.form label {
+  font-size: 20px;
+>>>>>>> master
+}
+
+.form input {
+  display: block;
+  width: 40%;
+  margin: 10px 0 30px 0;
+  height: 30px;
+  font-size: 17px;
+  border: none;
+  color: black;
+  padding-left: 10px;
 }
 
 #captcha-box {
@@ -837,11 +1051,17 @@ input:checked + .slider:before {
 }
 
 #error-message {
+<<<<<<< HEAD
   width: 55%;
   font-size: 10px;
   position: relative;
   bottom: 30px;
   left: 65px;
+=======
+  position: relative;
+  bottom: 55px;
+  left: 120px;
+>>>>>>> master
   visibility: hidden;
 }
 
@@ -858,6 +1078,7 @@ input:checked + .slider:before {
   font-size: 9px;
   border: none;
 }
+<<<<<<< HEAD
 
 #submit-button {
   position: relative;
@@ -920,3 +1141,5 @@ input:checked + .slider:before {
     bottom: 95px;
   }
 }
+=======
+>>>>>>> master
