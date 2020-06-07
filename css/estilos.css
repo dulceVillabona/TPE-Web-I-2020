@@ -25,7 +25,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 #div-logo1 {
   display: none;
@@ -313,7 +312,7 @@ footer .red-social-icon:hover {
 .cerveza-en-stock {
   width: 100%;
   height: 100vh;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -321,13 +320,13 @@ footer .red-social-icon:hover {
 }
 
 .tipo-de-cerveza {
-  width: 100%;
-  padding-left: 3%;
+  padding-left: 10px;
 }
 
 .tipo-de-cerveza h2 {
   font-size: 40px;
   margin-bottom: 0;
+  text-align: left;
 }
 
 .tipo-de-cerveza p {
@@ -339,11 +338,12 @@ footer .red-social-icon:hover {
 .tipo-de-cerveza h4 {
   font-size: 20px;
   margin: 0;
+  text-align: left;
 }
 
 .imagen-de-cerveza {
   display: block;
-  height: 30%;
+  height: 180px;
   align-self: center;
 }
 
@@ -360,12 +360,7 @@ footer .red-social-icon:hover {
   }
 
   .imagen-de-cerveza {
-    height: 60%;
     padding-right: 13%;
-  }
-
-  .tipo-de-cerveza h4 {
-    text-align: left;
   }
 }
 /*----------------------------PACKS-------------------------------------------------------------------------*/
@@ -449,37 +444,31 @@ footer .red-social-icon:hover {
 }
 
 /*-----------------------------KIT---------------------------------------------------------------------------*/
-
-.div-article {
+.article-kit {
+  height: 100vh;
+  width: 100%;
+  border-bottom: 1px solid black;
   display: flex;
-  margin-top: 35px;
+  padding-bottom: 20px;
   align-items: center;
   flex-direction: column;
 }
 
-article {
-  height: 100vh;
-  width: 100%;
-  border-bottom: 1px solid black;
-}
-
-article:last-of-type {
+.article-kit:last-of-type {
   height: 100%;
   width: 100%;
 }
 
-article h2,
-article h4,
-article p {
+.article-kit h2,
+.article-kit h4,
+.article-kit p {
   text-align: center;
   color: black;
 }
 
-article p {
+.article-kit p {
   font-size: 20px;
 }
-
-/*-----------------------------KIT---------------------------------------------------------------------------*/
 
 #haz-tu-cerveza-div {
   width: 100%;
@@ -492,17 +481,18 @@ article p {
     url(../img/beer-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  align-items: center;
 }
 
-#haz-tu-propia-cerveza {
+#haz-tu-cerveza-img {
   border: none;
   width: 70%;
   display: block;
   margin: 0 auto;
-  padding-top: 40%;
 }
 
-.subtitulo-kit {
+.subtitulo-article-kit {
   width: 80%;
   margin: 35px auto 0 auto;
   font-size: 20px;
@@ -510,11 +500,15 @@ article p {
 }
 
 .imagen-kit {
-  width: 65%;
+  width: 65%;  
+  margin: 30px auto;
+  display: block;
 }
 
 #imagen-elementos-kit {
   width: 100%;
+  margin: 30px auto;
+  display: block;
 }
 
 .parrafos-del-kit {
@@ -523,9 +517,9 @@ article p {
   width: 70%;
 }
 
-#list-div {
+#section-list{
   width: 75%;
-  padding: 40px 0;
+  margin: auto;
 }
 
 #section-list li {
@@ -534,39 +528,37 @@ article p {
 @media only screen and (min-width: 1000px) {
   .div-article {
     margin-top: 100px;
-    flex-direction: row;
   }
 
-  article p {
+  .article-kit p {
     font-size: 25px;
+    width: 80%;
   }
 
-  #haz-tu-propia-cerveza {
+  #haz-tu-cerveza-img  {
     width: 45%;
     padding-top: 10%;
   }
 
-  .subtitulo-kit {
+  .subtitulo-article-kit {
     width: 60%;
     margin: 100px auto 0 auto;
     font-size: 40px;
   }
 
   .imagen-kit {
-    width: 30%;
-    margin-left: 70px;
+    width: 50%;
   }
 
   #imagen-elementos-kit {
-    width: 35%;
-    margin-top: -25px;
+    width: 60%;
   }
 
   .parrafos-del-kit {
     margin: 10px 100px;
   }
 
-  #list-div {
+  #section-list {
     width: 60%;
   }
 }
@@ -760,11 +752,10 @@ input:checked + .slider:before {
   #stock-switch {
     max-width: 865px;
   }
-  
+
   #stock-switch p {
     font-size: 20px;
   }
-  
 }
 
 /*-----------------------------CONTACT------------------------------------------------------------------------*/
@@ -801,7 +792,6 @@ input:checked + .slider:before {
 .form label {
   font-size: 15px;
 }
-
 
 .form input {
   display: block;
