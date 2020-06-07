@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", cargarTabla);
 let cervezas = [
   {
     name: "American Ipa",
-    imageSrc: "../img/American_IPA.png",
+    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565278/American_IPA_yzg7g8.png",
     alcohol: "5.5-7.5 %",
     ibu: "40.0-65.0",
     og: "1.056-1.075",
@@ -14,7 +14,7 @@ let cervezas = [
   },
   {
     name: "Belgian Stout",
-    imageSrc: "../img/Belgian-Stout.png",
+    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565277/Belgian-Stout_yxbqcd.png",
     alcohol: "6.0-7.5 %",
     ibu: "20.0-30.0",
     og: "1.062-1.075",
@@ -23,7 +23,7 @@ let cervezas = [
   },
   {
     name: "Golden Ale",
-    imageSrc: "../img/Golden_Ale.png",
+    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565279/Golden_Ale_egqxw3.png",
     alcohol: "4.2-5.0 %",
     ibu: "20.0-25.0",
     og: "1.041-1.050",
@@ -32,7 +32,7 @@ let cervezas = [
   },
   {
     name: "Honey",
-    imageSrc: "../img/Honey.png",
+    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565281/Honey_fsghft.png",
     alcohol: "4.5-5.8 %",
     ibu: "30.0-35.0",
     og: "1.050-1.060",
@@ -41,7 +41,7 @@ let cervezas = [
   },
   {
     name: "Irish Red",
-    imageSrc: "../img/Irish-Red.png",
+    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565281/Irish-Red_brdejm.png",
     alcohol: "8.0–12.0 %",
     ibu: "50.0–85.0",
     og: "1.075 – 1.11",
@@ -50,7 +50,7 @@ let cervezas = [
   },
   {
     name: "Kölsch",
-    imageSrc: "../img/Kolsch.png",
+    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565282/Kolsch_bmqcel.png",
     alcohol: "3.5–5.0 %",
     ibu: "18.0-30.0",
     og: "1.044–1.050",

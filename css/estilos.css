@@ -205,7 +205,7 @@ footer .red-social-icon:hover {
       rgba(33, 32, 32, 0.7),
       rgba(33, 32, 32, 0.8)
     ),
-    url("../img/pintsender.jpg");
+    url("https://res.cloudinary.com/duli/image/upload/v1591565282/pintsender_tvq78y.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
@@ -373,7 +373,7 @@ footer .red-social-icon:hover {
       rgba(204, 168, 104, 0.68),
       rgba(33, 33, 32, 0.47)
     ),
-    url(../img/beer-background.jpg);
+    url(https://res.cloudinary.com/duli/image/upload/v1591565634/beer-background_mjazcl.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -478,7 +478,7 @@ footer .red-social-icon:hover {
       rgba(204, 168, 104, 0.68),
       rgba(33, 33, 32, 0.47)
     ),
-    url(../img/beer-background.jpg);
+    url(https://res.cloudinary.com/duli/image/upload/v1591565634/beer-background_mjazcl.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -571,7 +571,7 @@ footer .red-social-icon:hover {
       rgba(33, 32, 32, 0.7),
       rgba(33, 32, 32, 0.8)
     ),
-    url("../img/pintsender.jpg");
+    url("https://res.cloudinary.com/duli/image/upload/v1591565282/pintsender_tvq78y.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -767,7 +767,7 @@ input:checked + .slider:before {
       rgba(204, 168, 104, 0.68),
       rgba(33, 33, 32, 0.47)
     ),
-    url(../img/beer-background.jpg);
+    url(https://res.cloudinary.com/duli/image/upload/v1591565634/beer-background_mjazcl.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
