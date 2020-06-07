@@ -10,6 +10,7 @@ let cervezas = [
     ibu: "40.0-65.0",
     og: "1.056-1.075",
     fg: "1.010-1.018",
+    sinStock: false,
   },
   {
     name: "Belgian Stout",
@@ -18,6 +19,7 @@ let cervezas = [
     ibu: "20.0-30.0",
     og: "1.062-1.075",
     fg: "1.008-1.016",
+    sinStock: false,
   },
   {
     name: "Golden Ale",
@@ -26,6 +28,7 @@ let cervezas = [
     ibu: "20.0-25.0",
     og: "1.041-1.050",
     fg: "1.009-1.018",
+    sinStock: true,
   },
   {
     name: "Honey",
@@ -34,6 +37,7 @@ let cervezas = [
     ibu: "30.0-35.0",
     og: "1.050-1.060",
     fg: "1.005-1.015",
+    sinStock: true,
   },
   {
     name: "Irish Red",
@@ -42,6 +46,7 @@ let cervezas = [
     ibu: "50.0–85.0",
     og: "1.075 – 1.11",
     fg: "1.018 – 1.030",
+    sinStock: false,
   },
   {
     name: "Kölsch",
@@ -50,73 +55,56 @@ let cervezas = [
     ibu: "18.0-30.0",
     og: "1.044–1.050",
     fg: "1.007–1.011",
+    sinStock: true,
   },
 ];
 
 function cargarTabla() {
+  let mensaje = document.getElementById("sin-cervezas");
   let table = document.querySelector("#tabla-comparacion");
+  let switchDiv = document.getElementById("stock-switch");
   table.innerHTML = "";
-  let crearThead = document.createElement("THEAD");
-  let crearTR = document.createElement("TR");
-  let crearTH1 = document.createElement("TH");
-  let name = document.createTextNode("Cerveza");
-  let crearTH2 = document.createElement("TH");
-  let image = document.createTextNode("Color");
-  let crearTH3 = document.createElement("TH");
-  let alcohol = document.createTextNode("Alcohol");
-  let crearTH4 = document.createElement("TH");
-  let ibu = document.createTextNode("IBU");
-  let crearTH5 = document.createElement("TH");
-  let og = document.createTextNode("OG");
-  let crearTH6 = document.createElement("TH");
-  let fg = document.createTextNode("FG");
+  mensaje.innerHTML = "";
+  switchDiv.classList.remove("ocultar");
+  console.log(cervezas)
+  if (cervezas.length > 0) {
+    let crearThead = document.createElement("THEAD");
+    let crearTR = document.createElement("TR");
 
-  crearTH1.appendChild(name);
-  crearTH2.appendChild(image);
-  crearTH3.appendChild(alcohol);
-  crearTH4.appendChild(ibu);
-  crearTH5.appendChild(og);
-  crearTH6.appendChild(fg);
-  
-  crearTR.appendChild(crearTH1);
-  crearTR.appendChild(crearTH2);
-  crearTR.appendChild(crearTH3);
-  crearTR.appendChild(crearTH4);
-  crearTR.appendChild(crearTH5);
-  crearTR.appendChild(crearTH6);
-  
-  crearThead.appendChild(crearTR);
-  
-  table.appendChild(crearThead);
-  
-  /*let header = table.createTHead();
-  let row = header.insertRow(0);
-  let name = row.insertCell();
-  let imageSrc = row.insertCell();
-  let alcohol = row.insertCell();
-  let ibu = row.insertCell();
-  let og = row.insertCell();
-  let fg = row.insertCell();
-  name.innerHTML = "Cerveza";
-  imageSrc.innerHTML = "Color";
-  alcohol.innerHTML = "Alcohol %";
-  ibu.innerHTML = "IBU";
-  og.innerHTML = "OG";
-  fg.innerHTML = "FG";*/
-  
-  let tableBody = table.createTBody();
-  tableBody.id = "tabla-body";
-  
+    let titulosThead = ["Cerveza", "Color", "Alcohol", "IBU", "OG", "FG"];
+
+    for (let i = 0; i < titulosThead.length; i++) {
+      let nuevoTh = document.createElement("TH");
+      nuevoTh.innerHTML = titulosThead[i];
+      crearTR.appendChild(nuevoTh);
+    }
+
+    crearThead.appendChild(crearTR);
+
+    table.appendChild(crearThead);
+
+    let tableBody = table.createTBody();
+    tableBody.id = "tabla-body";
+
     for (let i = 0; i < cervezas.length; i++) {
       let row = tableBody.insertRow();
+      if (cervezas[i].sinStock === false) {
+        row.classList.add("en_stock");
+      }
       for (key in cervezas[i]) {
-        let cell = row.insertCell();
-        if (key === "imageSrc") {
-          cell.innerHTML = `<img src=${cervezas[i][key]} alt=${cervezas[i].name} />`;
-        } else {
-        cell.innerHTML = cervezas[i][key];
+        if (key !== "sinStock") {
+          let cell = row.insertCell();
+          if (key === "imageSrc") {
+            cell.innerHTML = `<img src=${cervezas[i][key]} alt=${cervezas[i].name} />`;
+          } else {
+            cell.innerHTML = cervezas[i][key];
+          }
+        }
       }
     }
+  } else {
+    mensaje.innerHTML = "No hay cervezas cargadas";
+    switchDiv.classList.add("ocultar");
   }
 }
 
@@ -130,33 +118,24 @@ let limpiarForm = () => {
 
 let agregar_1_cerveza = () => {
   event.preventDefault();
-  let form = document.querySelector("#tabla-form");
-  let inputs = form.querySelectorAll("input");
-
-
-  let imagen = document.querySelectorAll(".radio");
-  for (let i = 0; i < 6; i++) {
-    if (imagen[i].checked == true) {
-      imagenSeleccionada = imagen[i];
-    }
-  }
 
   let nuevaCerveza = {
     name: document.getElementById("beer-name").value,
-    imageSrc: imagenSeleccionada.value,
+    imageSrc: document.querySelector('input[name="cervezaImg"]:checked').value,
     alcohol: document.getElementById("beer-alcohol").value,
     ibu: document.getElementById("beer-IBU").value,
     og: document.getElementById("beer-OG").value,
-    fg: document.getElementById("beer-FG").value
+    fg: document.getElementById("beer-FG").value,
+    sinStock: document.getElementById("sin-stock").checked,
   };
-  console.log(nuevaCerveza.imageSrc)
   cervezas.push(nuevaCerveza);
   cargarTabla();
+  console.log(nuevaCerveza);
 };
 
 function restar_1_cerveza() {
-    cervezas.pop();
-    cargarTabla();
+  cervezas.pop();
+  cargarTabla();
 }
 
 function agregar_3_cervezas() {
@@ -168,11 +147,22 @@ function agregar_3_cervezas() {
   limpiarForm();
 }
 
-function resetear_cervezas_agregadas() {
-  console.log(cervezas.length);
-  for (let i = cervezas.length; i > 0; i--) {
-    console.log(cervezas.length);
-    restar_1_cerveza();
+function resetear_cervezas() {
+  cervezas = [];
+  cargarTabla();
+}
+
+function filtrar_cervezas() {
+  let switchButton = document.getElementById("mostrar-stock");
+  let cervezas_en_stock = document.querySelectorAll(".en_stock");
+  if (switchButton.checked) {
+    for (let i = 0; i < cervezas_en_stock.length; i++) {
+      cervezas_en_stock[i].classList.add("en_stock", "mostrar");
+    }
+  } else {
+    for (let i = 0; i < cervezas_en_stock.length; i++) {
+      cervezas_en_stock[i].classList.remove("mostrar");
+    }
   }
 }
 
@@ -187,75 +177,7 @@ document
   .addEventListener("click", agregar_3_cervezas);
 document
   .getElementById("reset-button")
-  .addEventListener("click", resetear_cervezas_agregadas);
-
-// function agregar_1_cerveza() {
-//   /* -----------------------------OBTENGO VALORES DEL FORM------------------------- */
-
-//   let nombre_cerveza = document.getElementById("beer-name").value;
-//   let imagen_cerveza = document.getElementById("beer-image").value;
-//   let alcohol_cerveza = document.getElementById("beer-alcohol").value;
-//   let IBU_cerveza = document.getElementById("beer-IBU").value;
-//   let OG_cerveza = document.getElementById("beer-OG").value;
-//   let FG_cerveza = document.getElementById("beer-FG").value;
-
-//   /* ----------------------------------CRÉO EL JSON "CERVEZA"-------------------- */
-
-//   let cerveza = {
-//     nombre: nombre_cerveza,
-//     img: imagen_cerveza,
-//     alcohol: alcohol_cerveza,
-//     IBU: IBU_cerveza,
-//     OG: OG_cerveza,
-//     FG: FG_cerveza,
-//   };
-
-//   /* -----------------------------------PUSHEO LA CERVEZA AL ARRAY DE CERVEZAS------------------- */
-
-//   cervezas.push(cerveza);
-//   console.log(cervezas[cervezas.length - 1].IBU);
-
-//   /* -----------------------------------CRÉO EL HTML Y SU CONTENIDO------------------- */
-
-//   let crearFila = document.createElement("TR");
-//   let crearCelda1 = document.createElement("TD");
-//   let textoCelda1 = document.createTextNode(
-//     cervezas[cervezas.length - 1].nombre
-//   );
-//   let crearCelda2 = document.createElement("TD");
-//   let textoCelda2 = document.createTextNode(cervezas[cervezas.length - 1].img);
-//   let crearCelda3 = document.createElement("TD");
-//   let textoCelda3 = document.createTextNode(
-//     cervezas[cervezas.length - 1].alcohol
-//   );
-//   let crearCelda4 = document.createElement("TD");
-//   let textoCelda4 = document.createTextNode(cervezas[cervezas.length - 1].IBU);
-//   let crearCelda5 = document.createElement("TD");
-//   let textoCelda5 = document.createTextNode(cervezas[cervezas.length - 1].OG);
-//   let crearCelda6 = document.createElement("TD");
-//   let textoCelda6 = document.createTextNode(cervezas[cervezas.length - 1].FG);
-
-//   /* -------------------------------------ÚNO EL CONTENIDO AL HTML----------------- */
-
-//   crearCelda1.appendChild(textoCelda1);
-//   crearCelda2.appendChild(textoCelda2);
-//   crearCelda3.appendChild(textoCelda3);
-//   crearCelda4.appendChild(textoCelda4);
-//   crearCelda5.appendChild(textoCelda5);
-//   crearCelda6.appendChild(textoCelda6);
-
-//   /* -------------------------------------ÚNO TODOS LOS "TD" AL "TR"----------------- */
-
-//   crearFila.appendChild(crearCelda1);
-//   crearFila.appendChild(crearCelda2);
-//   crearFila.appendChild(crearCelda3);
-//   crearFila.appendChild(crearCelda4);
-//   crearFila.appendChild(crearCelda5);
-//   crearFila.appendChild(crearCelda6);
-
-//   /* -------------------------------------INSERTO EL "TR" AL HTML DE LA TABLA
-//                                                 Y LE AGREGO UN ID-------------------- */
-
-//   crearFila.setAttribute("id", cervezas.length);
-//   document.getElementById("tabla-body").appendChild(crearFila);
-// }
+  .addEventListener("click", resetear_cervezas);
+document
+  .getElementById("mostrar-stock")
+  .addEventListener("change", filtrar_cervezas);

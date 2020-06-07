@@ -25,7 +25,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 #div-logo1 {
   display: none;
@@ -45,15 +44,18 @@ header {
   display: flex;
   width: 100%;
   height: 100%;
-  
 }
 .no-show-nav {
   display: none;
 }
 .show-nav {
-  width: 58%;
+  width: 100%;
   display: flex;
+  height: 90vh;
   flex-direction: column;
+  justify-content: space-around;
+  background-color: rgb(33, 32, 32);
+  z-index: 1;
 }
 header a:hover {
   color: #ffaf11;
@@ -61,14 +63,12 @@ header a:hover {
 }
 header a {
   width: 100%;
-  background-color: rgb(33, 32, 32);
   text-decoration: none;
   text-align: center;
   padding: 5% 0;
   color: white;
   border-bottom: 1px solid rgb(33, 32, 32);
 }
-
 
 @media only screen and (min-width: 1000px) {
   header {
@@ -77,7 +77,8 @@ header a {
     background-color: rgb(33, 32, 32);
     display: flex;
   }
-  #div-logo1-responsive, #button-nav {
+  #div-logo1-responsive,
+  #button-nav {
     display: none;
   }
   .no-show-nav {
@@ -89,7 +90,7 @@ header a {
     align-items: center;
     justify-content: space-around;
   }
-  
+
   header a {
     color: white;
     margin: 0;
@@ -102,7 +103,7 @@ header a {
     padding: 10px 0px;
     text-transform: uppercase;
   }
-  
+
   header a:hover {
     border-bottom: 2px solid #ffaf11;
     transition: width 0.5s linear 0.5s;
@@ -114,7 +115,7 @@ header a {
     justify-content: center;
     align-items: center;
   }
-  
+
   #img-logo1 {
     height: 90%;
   }
@@ -122,7 +123,6 @@ header a {
     display: none;
   }
 }
-
 
 /*-----------------------------FOOTER------------------------------------------------------*/
 
@@ -213,18 +213,14 @@ footer .red-social-icon:hover {
   background-size: cover;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 15vh 15vh;
-  grid-template-areas: 
-   "logo" 
-   "title";
+  grid-template-rows: 20vh 10vh;
 }
 #logo2 {
   grid-area: "logo";
   margin: 0 auto;
   padding-top: 7vh;
   width: 55%;
-  
-}  
+}
 #div-logo2 h1 {
   grid-area: "title";
   width: 70%;
@@ -243,8 +239,8 @@ footer .red-social-icon:hover {
   grid-template-columns: 100%;
   grid-template-rows: 60vh 40vh;
   grid-template-areas:
-   "text"
-   "img" ;
+    "text"
+    "img";
 }
 .home-text {
   grid-area: text;
@@ -263,7 +259,6 @@ footer .red-social-icon:hover {
   height: 30vh;
   width: 80%;
 }
-
 
 @media only screen and (min-width: 1000px) {
   #div-logo2 {
@@ -319,15 +314,16 @@ footer .red-social-icon:hover {
 
 .cerveza-en-stock {
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .tipo-de-cerveza {
-  width: 60%;
+  width: 100%;
   padding-left: 3%;
 }
 
@@ -349,16 +345,36 @@ footer .red-social-icon:hover {
 
 .imagen-de-cerveza {
   display: block;
-  height: 60%;
-  padding-right: 13%;
+  height: 30%;
   align-self: center;
 }
 
+@media only screen and (min-width: 600px) {
+  .cerveza-en-stock {
+    height: 50vh;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .tipo-de-cerveza {
+    width: 60%;
+    padding-left: 40px;
+  }
+
+  .imagen-de-cerveza {
+    height: 60%;
+    padding-right: 13%;
+  }
+
+  .tipo-de-cerveza h4 {
+    text-align: left;
+  }
+}
 /*----------------------------PACKS-------------------------------------------------------------------------*/
 
 #packs-title-div {
   width: 100%;
-  height: 30vh;
+  height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(204, 168, 104, 0.68),
@@ -370,23 +386,26 @@ footer .red-social-icon:hover {
 }
 
 #packs-title-div h2 {
-  margin: 0;
+  margin: auto;
   text-align: center;
   color: white;
-  padding-top: 50px;
-  font-size: 40px;
+  padding-top: 45%;
+  font-size: 45px;
+  width: 80%;
 }
 
 .promocion {
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   border-bottom: 2px solid black;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .promo-text {
-  width: 50%;
+  width: 80%;
   padding-left: 4%;
 }
 
@@ -400,16 +419,76 @@ footer .red-social-icon:hover {
 }
 
 .promocion img {
-  width: 20%;
   align-self: center;
-  padding-left: 180px;
+  padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 700px) {
+  #packs-title-div {
+    height: 30vh;
+  }
+
+  #packs-title-div h2 {
+    margin: 0;
+    padding-top: 50px;
+    font-size: 40px;
+    width: 100%;
+  }
+
+  .promocion {
+    height: 50vh;
+    flex-direction: row;
+  }
+
+  .promo-text {
+    width: 50%;
+  }
+
+  .promocion img {
+    width: 20%;
+    padding-left: 180px;
+  }
 }
 
 /*-----------------------------KIT---------------------------------------------------------------------------*/
 
+.div-article {
+  display: flex;
+  margin-top: 35px;
+  align-items: center;
+  flex-direction: column;
+}
+
+article {
+  height: 100vh;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+article:last-of-type {
+  height: 100%;
+  width: 100%;
+}
+
+article h2,
+article h4,
+article p {
+  text-align: center;
+  color: black;
+}
+
+article p {
+  font-size: 20px;
+}
+
+#div-article-kit {
+  display: flex;
+  flex-direction: column;
+}
+
 #haz-tu-cerveza-div {
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(204, 168, 104, 0.68),
@@ -420,71 +499,81 @@ footer .red-social-icon:hover {
   background-size: cover;
 }
 
-#haz-tu-cerveza-img {
-  width: 45%;
+#haz-tu-propia-cerveza {
+  border: none;
+  width: 70%;
   display: block;
-  margin: auto;
+  margin: 0 auto;
+  padding-top: 40%;
 }
 
-.article-kit {
-  height: 100vh;
-  width: 100%;
-  border-bottom: 1px solid black;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.article-kit:last-of-type {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.subtitulo-article-kit {
-  width: 60%;
-  margin: 5% auto 0 auto;
-  padding: 0 20%;
-  font-size: 40px;
+.subtitulo-kit {
+  width: 80%;
+  margin: 35px auto 0 auto;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
 .imagen-kit {
-  width: 30%;
-  margin: 8% 5%;
-}
-
-.section-article-kit {
-  width: 60%;
-  height: 30vh;
-  padding: 15vh 0;
-}
-
-.article-kit h2,
-.article-kit h4 {
-  text-align: center;
-  color: black;
-}
-
-.parrafos-del-kit {
-  width: 70%;
-  text-align: center;
-  font-size: 25px;
-  margin: 1% 15% 0.5% 15%;
+  width: 65%;
 }
 
 #imagen-elementos-kit {
-  width: 35%;
-  margin: 5% auto 0 auto;
+  width: 100%;
 }
 
-#section-list {
-  width: 60%;
-  margin: 0 auto 3% auto;
+.parrafos-del-kit {
+  text-align: justify;
+  margin: 10px auto;
+  width: 70%;
 }
 
-#section-list li {
+#list-div {
+  width: 75%;
+  padding: 40px 0;
+}
+
+#list-div li {
   padding: 20px 0;
+}
+@media only screen and (min-width: 1000px) {
+  .div-article {
+    margin-top: 100px;
+    flex-direction: row;
+  }
+
+  article p {
+    font-size: 25px;
+  }
+
+  #haz-tu-propia-cerveza {
+    width: 45%;
+    padding-top: 10%;
+  }
+
+  .subtitulo-kit {
+    width: 60%;
+    margin: 100px auto 0 auto;
+    font-size: 40px;
+  }
+
+  .imagen-kit {
+    width: 30%;
+    margin-left: 70px;
+  }
+
+  #imagen-elementos-kit {
+    width: 35%;
+    margin-top: -25px;
+  }
+
+  .parrafos-del-kit {
+    margin: 10px 100px;
+  }
+
+  #list-div {
+    width: 60%;
+  }
 }
 
 /*----------------------------TABLA-------------------------------------------------------------------------*/
@@ -511,9 +600,15 @@ footer .red-social-icon:hover {
   color: white;
 }
 
+#table-article h3 {
+  color: white;
+  text-align: center;
+  font-size: 25px;
+}
+
 table {
   margin: 0 auto;
-  font-size: 9px;
+  font-size: 15px;
   color: white;
 }
 
@@ -525,9 +620,13 @@ tr {
   text-align: center;
 }
 
+.en_stock.mostrar {
+  background-color: #ffb0114d;
+}
+
 th,
 td img {
-  width: 5.5em;
+  width: 6em;
 }
 #seleccion-imagen-cerveza-tabla-form {
   margin-top: 3%;
@@ -575,8 +674,75 @@ th {
   justify-content: space-around;
 }
 
-@media only screen and (min-width: 1000px) {
+#stock-switch {
+  min-width: 360px;
+  max-width: 545px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  align-items: center;
+}
 
+#stock-switch.ocultar {
+  display: none;
+}
+
+#stock-switch p {
+  color: white;
+  display: inline-block;
+  font-size: 15px;
+  margin-right: 40px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ffb0114d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ffb0114d;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+@media only screen and (min-width: 1000px) {
   #table-article h2 {
     font-size: 40px;
   }
@@ -595,6 +761,15 @@ th {
   .tabla-form-section button {
     margin: 10px 0;
   }
+
+  #stock-switch {
+    max-width: 865px;
+  }
+  
+  #stock-switch p {
+    font-size: 20px;
+  }
+  
 }
 
 /*-----------------------------CONTACT------------------------------------------------------------------------*/
@@ -691,7 +866,6 @@ th {
 }
 
 @media only screen and (min-width: 1000px) {
-
   #contact-article {
     height: 80vh;
   }
