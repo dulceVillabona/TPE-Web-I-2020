@@ -799,23 +799,13 @@ input:checked + .slider:before {
 }
 
 .form label {
-  font-size: 12px;
+  font-size: 15px;
 }
+
 
 .form input {
   display: block;
-  width: 40%;
-  margin: 5px 0 15px 0;
-  height: 15px;
-  font-size: 9px;
-  border: none;
-  color: black;
-  padding-left: 5px;
-}
-
-.form input {
-  display: block;
-  width: 40%;
+  width: 70%;
   margin: 10px 0 30px 0;
   height: 30px;
   font-size: 17px;
@@ -827,9 +817,9 @@ input:checked + .slider:before {
 #captcha-box {
   width: 60px;
   text-align: center;
-  height: 15px;
+  height: 20px;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 15px;
   margin-top: 5px;
   background-color: white;
   color: black;
@@ -838,17 +828,18 @@ input:checked + .slider:before {
 #captcha-answer {
   width: 60px !important;
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
   padding-left: 0;
 }
 
 #error-message {
-  width: 55%;
-  font-size: 10px;
+  width: 85%;
+  font-size: 15px;
   position: relative;
-  bottom: 30px;
+  bottom: 55px;
   left: 65px;
   visibility: hidden;
+  color: white;
 }
 
 #error-message.show {
@@ -857,11 +848,11 @@ input:checked + .slider:before {
 
 .form button {
   border-radius: 2px;
-  width: 60px;
-  height: 15px;
+  width: 70px;
+  height: 20px;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
-  font-size: 9px;
+  font-size: 15px;
   border: none;
 }
 
@@ -893,6 +884,7 @@ input:checked + .slider:before {
     height: 30px;
     font-size: 17px;
     padding-left: 10px;
+    width: 40%;
   }
 
   #captcha-box {
@@ -910,8 +902,8 @@ input:checked + .slider:before {
 
   #error-message {
     font-size: 17px;
-    bottom: 55px;
     left: 120px;
+    width: 35%;
   }
 
   .form button {
