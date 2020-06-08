@@ -108,13 +108,13 @@ function cargarTabla() {
   }
 }
 
-let limpiarForm = () => {
+/*let limpiarForm = () => {
   let form = document.querySelector("#tabla-comparacion");
   let inputs = form.querySelectorAll("input");
   for (let i = 0; i < inputs.length; i++) {
     inputs[i].value = "";
   }
-};
+};*/
 
 let agregar_1_cerveza = () => {
   event.preventDefault();
@@ -144,7 +144,7 @@ function agregar_3_cervezas() {
   for (let i = 0; i < bucle_number; i++) {
     agregar_1_cerveza();
   }
-  limpiarForm();
+  //limpiarForm();
 }
 
 function resetear_cervezas() {
