@@ -363,7 +363,7 @@ footer .red-social-icon:hover {
 
 .imagen-de-cerveza {
   display: block;
-  height: 180px;
+  height: 165px;
   align-self: center;
 }
 
@@ -403,7 +403,7 @@ footer .red-social-icon:hover {
   text-align: center;
   color: white;
   padding-top: 45%;
-  font-size: 45px;
+  font-size: 40px;
   width: 80%;
 }
 
@@ -433,6 +433,7 @@ footer .red-social-icon:hover {
 
 .promocion img {
   align-self: center;
+  height: 250px;
   padding-bottom: 20px;
 }
 
@@ -633,7 +634,7 @@ tr {
 
 th,
 td img {
-  width: 6em;
+  width: 5em;
 }
 #seleccion-imagen-cerveza-tabla-form {
   margin-top: 3%;
@@ -682,7 +683,7 @@ th {
 }
 
 #stock-switch {
-  min-width: 360px;
+  min-width: 300px;
   max-width: 545px;
   margin: 0 auto 30px auto;
   display: flex;
@@ -781,7 +782,7 @@ input:checked + .slider:before {
 /*-----------------------------CONTACT------------------------------------------------------------------------*/
 
 #contact-article {
-  height: 75vh;
+  height: 90vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(204, 168, 104, 0.68),
