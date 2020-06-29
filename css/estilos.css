@@ -6,6 +6,13 @@ body {
   margin: 0;
 }
 
+/*------------------------------------------- MENSAJE LOADING---------------------------- */
+
+#mensaje-carga {
+  margin: 25vh;
+  text-align: center;
+}
+
 /*--------------------------------------------HEADER--------------------------------------------*/
 
 header {
@@ -150,14 +157,14 @@ footer li {
 }
 
 footer p,
-.nav-del-footer {
+footer a {
   font-size: small;
   text-decoration: none;
   color: white;
   text-shadow: 2px 2px black;
   text-align: center;
 }
-.nav-del-footer:hover {
+footer a:hover {
   color: #ffaf11;
 }
 
@@ -473,11 +480,13 @@ footer .red-social-icon:hover {
   padding-bottom: 20px;
   align-items: center;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .article-kit:last-of-type {
-  height: 100%;
+  height: auto;
   width: 100%;
+  margin-top: 25px;
 }
 
 .article-kit h2,
@@ -522,7 +531,7 @@ footer .red-social-icon:hover {
 
 .imagen-kit {
   width: 65%;  
-  margin: 30px auto;
+  margin: 0px auto;
   display: block;
 }
 
@@ -547,6 +556,9 @@ footer .red-social-icon:hover {
   padding: 20px 0;
 }
 @media only screen and (min-width: 1000px) {
+  #haz-tu-cerveza-div {
+    height: 80vh;
+  }
   .div-article {
     margin-top: 100px;
   }
@@ -558,21 +570,23 @@ footer .red-social-icon:hover {
 
   #haz-tu-cerveza-img  {
     width: 45%;
-    padding-top: 10%;
   }
 
   .subtitulo-article-kit {
     width: 60%;
-    margin: 100px auto 0 auto;
+    margin: 5px auto 0 auto;
     font-size: 40px;
   }
 
   .imagen-kit {
-    width: 50%;
+    height: 35vh;
+    width: auto;
   }
 
   #imagen-elementos-kit {
-    width: 60%;
+    height: 70vh;
+    width: auto;
+    margin: 0;
   }
 
   .parrafos-del-kit {
