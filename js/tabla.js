@@ -2,109 +2,68 @@
 
 document.addEventListener("DOMContentLoaded", cargarTabla);
 
-let cervezas = [
-  {
-    name: "American Ipa",
-    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565278/American_IPA_yzg7g8.png",
-    alcohol: "5.5-7.5 %",
-    ibu: "40.0-65.0",
-    og: "1.056-1.075",
-    fg: "1.010-1.018",
-    sinStock: false,
-  },
-  {
-    name: "Belgian Stout",
-    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565277/Belgian-Stout_yxbqcd.png",
-    alcohol: "6.0-7.5 %",
-    ibu: "20.0-30.0",
-    og: "1.062-1.075",
-    fg: "1.008-1.016",
-    sinStock: false,
-  },
-  {
-    name: "Golden Ale",
-    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565279/Golden_Ale_egqxw3.png",
-    alcohol: "4.2-5.0 %",
-    ibu: "20.0-25.0",
-    og: "1.041-1.050",
-    fg: "1.009-1.018",
-    sinStock: true,
-  },
-  {
-    name: "Honey",
-    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565281/Honey_fsghft.png",
-    alcohol: "4.5-5.8 %",
-    ibu: "30.0-35.0",
-    og: "1.050-1.060",
-    fg: "1.005-1.015",
-    sinStock: true,
-  },
-  {
-    name: "Irish Red",
-    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565281/Irish-Red_brdejm.png",
-    alcohol: "8.0–12.0 %",
-    ibu: "50.0–85.0",
-    og: "1.075 – 1.11",
-    fg: "1.018 – 1.030",
-    sinStock: false,
-  },
-  {
-    name: "Kölsch",
-    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565282/Kolsch_bmqcel.png",
-    alcohol: "3.5–5.0 %",
-    ibu: "18.0-30.0",
-    og: "1.044–1.050",
-    fg: "1.007–1.011",
-    sinStock: true,
-  },
-];
-
-function cargarTabla() {
+async function cargarTabla() {
   let mensaje = document.getElementById("sin-cervezas");
   let table = document.querySelector("#tabla-comparacion");
   let switchDiv = document.getElementById("stock-switch");
   table.innerHTML = "";
   mensaje.innerHTML = "";
   switchDiv.classList.remove("ocultar");
-  console.log(cervezas)
-  if (cervezas.length > 0) {
-    let crearThead = document.createElement("THEAD");
-    let crearTR = document.createElement("TR");
+  let cervezas = [];
 
-    let titulosThead = ["Cerveza", "Color", "Alcohol", "IBU", "OG", "FG"];
+  try {
+    let response = await fetch(
+      "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas"
+    );
+    if (response.ok) {
+      let data = await response.json();
+      data.cervezas.forEach((el) => {
+        cervezas.push(el);
+      });
+      if (cervezas.length > 0) {
+        let crearThead = document.createElement("THEAD");
+        let crearTR = document.createElement("TR");
 
-    for (let i = 0; i < titulosThead.length; i++) {
-      let nuevoTh = document.createElement("TH");
-      nuevoTh.innerHTML = titulosThead[i];
-      crearTR.appendChild(nuevoTh);
-    }
+        let titulosThead = ["Cerveza", "Color", "Alcohol", "IBU", "OG", "FG"];
 
-    crearThead.appendChild(crearTR);
+        for (let i = 0; i < titulosThead.length; i++) {
+          let nuevoTh = document.createElement("TH");
+          nuevoTh.innerHTML = titulosThead[i];
+          crearTR.appendChild(nuevoTh);
+        }
 
-    table.appendChild(crearThead);
+        crearThead.appendChild(crearTR);
 
-    let tableBody = table.createTBody();
-    tableBody.id = "tabla-body";
+        table.appendChild(crearThead);
 
-    for (let i = 0; i < cervezas.length; i++) {
-      let row = tableBody.insertRow();
-      if (cervezas[i].sinStock === false) {
-        row.classList.add("en_stock");
-      }
-      for (key in cervezas[i]) {
-        if (key !== "sinStock") {
-          let cell = row.insertCell();
-          if (key === "imageSrc") {
-            cell.innerHTML = `<img src=${cervezas[i][key]} alt=${cervezas[i].name} />`;
-          } else {
-            cell.innerHTML = cervezas[i][key];
+        let tableBody = table.createTBody();
+        tableBody.id = "tabla-body";
+
+        for (let i = 0; i < cervezas.length; i++) {
+          let row = tableBody.insertRow();
+          if (cervezas[i].thing.sinStock === false) {
+            row.classList.add("en_stock");
+          }
+          for (key in cervezas[i].thing) {
+            if (key !== "sinStock") {
+              let cell = row.insertCell();
+              if (key === "imageSrc") {
+                cell.innerHTML = `<img src=${cervezas[i].thing[key]} alt=${cervezas[i].thing.name} />`;
+              } else {
+                cell.innerHTML = cervezas[i].thing[key];
+              }
+            }
           }
         }
+      } else {
+        mensaje.innerHTML = "No hay cervezas cargadas";
+        switchDiv.classList.add("ocultar");
       }
+    } else {
+      console.log(error);
     }
-  } else {
-    mensaje.innerHTML = "No hay cervezas cargadas";
-    switchDiv.classList.add("ocultar");
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -116,7 +75,7 @@ function cargarTabla() {
   }
 };*/
 
-let agregar_1_cerveza = () => {
+async function agregar_1_cerveza() {
   event.preventDefault();
 
   let nuevaCerveza = {
@@ -128,10 +87,27 @@ let agregar_1_cerveza = () => {
     fg: document.getElementById("beer-FG").value,
     sinStock: document.getElementById("sin-stock").checked,
   };
-  cervezas.push(nuevaCerveza);
-  cargarTabla();
-  console.log(nuevaCerveza);
-};
+  let data = {
+    thing: nuevaCerveza,
+  };
+  try {
+    let response = await fetch(
+      "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    );
+    if (response.ok) {
+      cargarTabla();
+    } else {
+      console.log("error");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 function restar_1_cerveza() {
   cervezas.pop();
