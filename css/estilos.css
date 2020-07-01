@@ -258,7 +258,6 @@ footer .red-social-icon:hover {
 }
 
 @media only screen and (min-width: 500px) and (max-width: 999px) {
-
   .home-text {
     width: 75%;
   }
@@ -521,7 +520,7 @@ footer .red-social-icon:hover {
 }
 
 .imagen-kit {
-  width: 65%;  
+  width: 65%;
   margin: 30px auto;
   display: block;
 }
@@ -538,7 +537,7 @@ footer .red-social-icon:hover {
   width: 70%;
 }
 
-#section-list{
+#section-list {
   width: 75%;
   margin: auto;
 }
@@ -556,7 +555,7 @@ footer .red-social-icon:hover {
     width: 80%;
   }
 
-  #haz-tu-cerveza-img  {
+  #haz-tu-cerveza-img {
     width: 45%;
     padding-top: 10%;
   }
@@ -626,6 +625,33 @@ tr {
   border: 1px solid white;
   border-collapse: collapse;
   text-align: center;
+}
+
+td input {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+}
+
+td input:focus {
+  border: none;
+  background-color: #ffb0114d;
+}
+
+.beer-buttons-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.table-button {
+  color: white;
+  font-size: 15px;
+  background-color: #ffb0114d;
+  border: none;
+  padding: 8px;
 }
 
 .en_stock.mostrar {
@@ -763,6 +789,10 @@ input:checked + .slider:before {
   td img {
     width: 8em;
   }
+  td input {
+    font-size: 18px;
+  }
+
   #tabla-form .tabla-form-section div input {
     width: 45%;
   }

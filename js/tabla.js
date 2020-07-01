@@ -63,6 +63,8 @@ let mockCervezas = [
   },
 ];
 
+let cervezas = [];
+
 document.addEventListener("DOMContentLoaded", cargarTabla);
 
 async function cargarTabla() {
@@ -72,7 +74,6 @@ async function cargarTabla() {
   table.innerHTML = "";
   mensaje.innerHTML = "";
   switchDiv.classList.remove("ocultar");
-  let cervezas = [];
 
   try {
     let response = await fetch(
@@ -80,14 +81,20 @@ async function cargarTabla() {
     );
     if (response.ok) {
       let data = await response.json();
-      data.cervezas.forEach((el) => {
-        cervezas.push(el);
-      });
+      cervezas = data.cervezas;
       if (cervezas.length > 0) {
         let crearThead = document.createElement("THEAD");
         let crearTR = document.createElement("TR");
 
-        let titulosThead = ["Cerveza", "Color", "Alcohol", "IBU", "OG", "FG"];
+        let titulosThead = [
+          "Cerveza",
+          "Color",
+          "Alcohol",
+          "IBU",
+          "OG",
+          "FG",
+          "EDITAR/BORRAR",
+        ];
 
         for (let i = 0; i < titulosThead.length; i++) {
           let nuevoTh = document.createElement("TH");
@@ -113,10 +120,31 @@ async function cargarTabla() {
               if (key === "imageSrc") {
                 cell.innerHTML = `<img src=${cervezas[i].thing[key]} alt=${cervezas[i].thing.name} />`;
               } else {
-                cell.innerHTML = cervezas[i].thing[key];
+                let inputEl = document.createElement("INPUT");
+                inputEl.classList.add("input-tabla-cervezas");
+                inputEl.value = cervezas[i].thing[key];
+                cell.appendChild(inputEl);
               }
             }
           }
+          let cell = row.insertCell();
+          let divEl = document.createElement("DIV");
+          divEl.classList.add("beer-buttons-div");
+          let editButton = document.createElement("BUTTON");
+          editButton.classList.add("table-button");
+          editButton.innerHTML = "Editar";
+          editButton.addEventListener("click", () =>
+            editar_cerveza(cervezas[i]._id, i)
+          );
+          let deleteButton = document.createElement("BUTTON");
+          deleteButton.classList.add("table-button");
+          deleteButton.innerHTML = "Borrar";
+          deleteButton.addEventListener("click", () =>
+            borrar_cerveza(cervezas[i]._id)
+          );
+          divEl.appendChild(editButton);
+          divEl.appendChild(deleteButton);
+          cell.appendChild(divEl);
         }
       } else {
         mensaje.innerHTML = "No hay cervezas cargadas";
@@ -164,31 +192,48 @@ async function agregar_1_cerveza(event) {
     );
     if (response.ok) {
       cargarTabla();
-    } else {
-      console.log("error");
     }
   } catch (error) {
     console.log(error);
   }
 }
 
-function restar_1_cerveza() {
-  cervezas.pop();
-  cargarTabla();
+async function restar_1_cerveza() {
+  let response = await fetch(
+    `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${
+      cervezas[cervezas.length - 1]._id
+    }`,
+    {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: "",
+    }
+  );
+  if (response.ok) {
+    cargarTabla();
+  }
 }
 
 async function agregar_3_cervezas(event) {
   let bucle_number = document.getElementById("bucle-number").value;
 
   for (let i = 0; i < bucle_number; i++) {
-    console.log('bucle')
     await agregar_1_cerveza(event);
   }
   //limpiarForm();
 }
 
-function resetear_cervezas() {
-  cervezas = [];
+async function resetear_cervezas() {
+  for (let i = 0; i < cervezas.length; i++) {
+    await fetch(
+      `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${cervezas[i]._id}`,
+      {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: "",
+      }
+    );
+  }
   cargarTabla();
 }
 
@@ -203,6 +248,45 @@ function filtrar_cervezas() {
     for (let i = 0; i < cervezas_en_stock.length; i++) {
       cervezas_en_stock[i].classList.remove("mostrar");
     }
+  }
+}
+
+async function editar_cerveza(id, index) {
+  let tableBody = document.querySelector("tbody");
+  let filaEditada = tableBody.querySelectorAll("tr")[index];
+  let inputsFilaEditada = filaEditada.querySelectorAll("input");
+  let cervezaEditada = {
+    name: inputsFilaEditada[0].value,
+    imageSrc: cervezas[index].thing.imageSrc,
+    alcohol: inputsFilaEditada[1].value,
+    ibu: inputsFilaEditada[2].value,
+    og: inputsFilaEditada[3].value,
+    fg: inputsFilaEditada[4].value,
+    sinStock: cervezas[index].thing.sinStock,
+  };
+  let response = await fetch(
+    `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${id}`,
+    {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({thing: cervezaEditada}),
+    }
+  );
+  if (response.ok) {
+    cargarTabla();
+  }
+}
+
+async function borrar_cerveza(id) {
+  let response = await fetch(
+    `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${id}`,
+    {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" }
+    }
+  );
+  if(response.ok) {
+    cargarTabla();
   }
 }
 
