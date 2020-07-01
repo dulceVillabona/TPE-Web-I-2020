@@ -1,4 +1,4 @@
-("use strict");
+/*("use strict");
 
 document.addEventListener("DOMContentLoaded", cargarTabla);
 
@@ -74,7 +74,7 @@ async function cargarTabla() {
     inputs[i].value = "";
   }
 };*/
-
+/*
 async function agregar_1_cerveza() {
   event.preventDefault();
 
@@ -157,3 +157,4 @@ document
 document
   .getElementById("mostrar-stock")
   .addEventListener("change", filtrar_cervezas);
+*/

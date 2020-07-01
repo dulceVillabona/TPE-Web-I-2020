@@ -1,5 +1,7 @@
 "use strict";
 
+const URL = "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/pruebas";
+
 let contenedor = document.querySelector("#contenedor");
 let mensajeCarga = document.createElement("H1");
 mensajeCarga.id = "mensaje-carga";
@@ -141,9 +143,7 @@ async function tablaPage(event) {
             let contenido = await response.text();
             contenedor.innerHTML = contenido;
             
-            setTimeout(function() { cargarTabla(); }, 0);
-
-
+            
             let cervezas = [
                 {
                     name: "American Ipa",
@@ -199,26 +199,38 @@ async function tablaPage(event) {
                     fg: "1.007–1.011",
                     sinStock: true,
                 },
-                ];
+            ];
             
-            function cargarTabla() {
+            let Cervezas = [];
+            fetch(URL).then(function(r) {
+                return r.json();
+            }).then(function(json) {
+                for (const elem of json.pruebas) {
+                    Cervezas.push(elem._id);
+                }
+                setTimeout(function() { cargarTabla(); }, 10);
+            });
+            
+            async function cargarTabla() {
                 let mensaje = contenedor.querySelector("#sin-cervezas");
                 let table = contenedor.querySelector("#tabla-comparacion");
                 let switchDiv = contenedor.querySelector("#stock-switch");
                 table.innerHTML = "";
                 mensaje.innerHTML = "";
                 switchDiv.classList.remove("ocultar");
-                console.log(cervezas)
-                if (cervezas.length > 0) {
+
+                if (Cervezas.length > 0) {
+                    Cervezas = [];
+                    console.log(Cervezas);
                     let crearThead = document.createElement("THEAD");
                     let crearTR = document.createElement("TR");
             
                     let titulosThead = ["Cerveza", "Color", "Alcohol", "IBU", "OG", "FG"];
             
                     for (let i = 0; i < titulosThead.length; i++) {
-                    let nuevoTh = document.createElement("TH");
-                    nuevoTh.innerHTML = titulosThead[i];
-                    crearTR.appendChild(nuevoTh);
+                        let nuevoTh = document.createElement("TH");
+                        nuevoTh.innerHTML = titulosThead[i];
+                        crearTR.appendChild(nuevoTh);
                     }
             
                     crearThead.appendChild(crearTR);
@@ -227,62 +239,110 @@ async function tablaPage(event) {
             
                     let tableBody = table.createTBody();
                     tableBody.id = "tabla-body";
-            
-                    for (let i = 0; i < cervezas.length; i++) {
-                    let row = tableBody.insertRow();
-                    if (cervezas[i].sinStock === false) {
-                        row.classList.add("en_stock");
-                    }
-                    for (let key in cervezas[i]) {
-                        if (key !== "sinStock") {
-                        let cell = row.insertCell();
-                        if (key === "imageSrc") {
-                            cell.innerHTML = `<img src=${cervezas[i][key]} alt=${cervezas[i].name} />`;
+
+                    try {
+                        let response = await fetch(URL);
+                        if (response.ok) {
+                            let json = await response.json();
+
+                            for (const elem of json.pruebas) {
+                                console.log(Cervezas);
+                                Cervezas.push(elem._id);
+                                let row = tableBody.insertRow();
+                                if (elem.thing.sinStock === false) {
+                                    row.classList.add("en_stock");
+                                }
+                                for (let key in elem.thing) {
+                                    if (key !== "sinStock") {
+                                        let cell = row.insertCell();
+                                        if (key === "imageSrc") {
+                                            cell.innerHTML = `<img src=${elem.thing[key]} alt=${elem.thing.name} />`;
+                                        } else {
+                                            cell.innerHTML = elem.thing[key];
+                                        }
+                                    }
+                                }
+                            }
+                            console.log(Cervezas);
                         } else {
-                            cell.innerHTML = cervezas[i][key];
+                            table.innerHTML = "";
+                            mensaje.innerHTML = "Error";
                         }
-                        }
+                    } catch (error) {
+                        table.innerHTML = "";
+                        mensaje.innerHTML = error;
+                        console.log(error)
                     }
-                    }
+            
                 } else {
                     mensaje.innerHTML = "No hay cervezas cargadas";
                     switchDiv.classList.add("ocultar");
                 }
+
             }
+
             
-            let agregar_1_cerveza = () => {
-                event.preventDefault();
-            
+            function agregar_1_cerveza() {
+                Cervezas.push("p");
                 let nuevaCerveza = {
-                    name: contenedor.querySelector("#beer-name").value,
-                    imageSrc: contenedor.querySelector('input[name="cervezaImg"]:checked').value,
-                    alcohol: contenedor.querySelector("#beer-alcohol").value,
-                    ibu: contenedor.querySelector("#beer-IBU").value,
-                    og: contenedor.querySelector("#beer-OG").value,
-                    fg: contenedor.querySelector("#beer-FG").value,
-                    sinStock: contenedor.querySelector("#sin-stock").checked,
+                    "thing": {
+                    "name": contenedor.querySelector("#beer-name").value,
+                    "imageSrc": contenedor.querySelector('input[name="cervezaImg"]:checked').value,
+                    "alcohol": contenedor.querySelector("#beer-alcohol").value,
+                    "ibu": contenedor.querySelector("#beer-IBU").value,
+                    "og": contenedor.querySelector("#beer-OG").value,
+                    "fg": contenedor.querySelector("#beer-FG").value,
+                    "sinStock": contenedor.querySelector("#sin-stock").checked
+                    }
                 };
-                cervezas.push(nuevaCerveza);
-                cargarTabla();
-                console.log(nuevaCerveza);
+                fetch(URL, {
+                    "method": 'POST',
+                    "headers": {'Content-Type': 'application/json'},
+                    "body": JSON.stringify(nuevaCerveza)
+                }).then(function(r) {
+                    return r.json();
+                }).then(function(json) {
+                    cargarTabla();
+                })
             };
             
             function restar_1_cerveza() {
-                cervezas.pop();
-                cargarTabla();
+                console.log(Cervezas[Cervezas.length-1]);
+                fetch(URL+"/"+Cervezas[Cervezas.length-1], {
+                    "method": 'DELETE',
+                }).then(function(r) {
+                    return r.json()
+                }).then(function(json) {
+                    cargarTabla();
+                    console.log(json);
+                    console.log(Cervezas);
+                })
             }
 
-            function agregar_3_cervezas() {
+            function agregar_3_cervezas(event) {
                 let bucle_number = contenedor.querySelector("#bucle-number").value;
+                let mensaje = contenedor.querySelector("#sin-cervezas");
+                mensaje.innerHTML = "Espere un momento..";
 
                 for (let i = 0; i < bucle_number; i++) {
+                    console.log(Cervezas);
                     agregar_1_cerveza();
                 }
+                setTimeout(function() {cargarTabla();}, 2000);
             }
 
-            function resetear_cervezas() {
-                cervezas = [];
-                cargarTabla();
+            function resetear_cervezas(event) {
+                event.preventDefault();
+                for (let i = Cervezas.length-1; i >= 0; i--) {
+                    fetch(URL+"/"+Cervezas[i], {
+                        "method": 'DELETE',
+                    }).then(function(r) {
+                        return r.json();
+                    }).then(function(json) {
+                        console.log(json);
+                        cargarTabla();
+                    })
+                }
             }
 
             function filtrar_cervezas() {
@@ -298,6 +358,8 @@ async function tablaPage(event) {
                     }
                 }
             }
+
+            setInterval(function() {cargarTabla(); } , 10000);
 
             contenedor
             .querySelector("#sumar-button")
