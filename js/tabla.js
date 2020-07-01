@@ -1,5 +1,68 @@
 ("use strict");
 
+let mockCervezas = [
+  {
+    name: "American Ipa",
+    imageSrc:
+      "https://res.cloudinary.com/duli/image/upload/v1591565278/American_IPA_yzg7g8.png",
+    alcohol: "5.5-7.5 %",
+    ibu: "40.0-65.0",
+    og: "1.056-1.075",
+    fg: "1.010-1.018",
+    sinStock: false,
+  },
+  {
+    name: "Belgian Stout",
+    imageSrc:
+      "https://res.cloudinary.com/duli/image/upload/v1591565277/Belgian-Stout_yxbqcd.png",
+    alcohol: "6.0-7.5 %",
+    ibu: "20.0-30.0",
+    og: "1.062-1.075",
+    fg: "1.008-1.016",
+    sinStock: false,
+  },
+  {
+    name: "Golden Ale",
+    imageSrc:
+      "https://res.cloudinary.com/duli/image/upload/v1591565279/Golden_Ale_egqxw3.png",
+    alcohol: "4.2-5.0 %",
+    ibu: "20.0-25.0",
+    og: "1.041-1.050",
+    fg: "1.009-1.018",
+    sinStock: true,
+  },
+  {
+    name: "Honey",
+    imageSrc:
+      "https://res.cloudinary.com/duli/image/upload/v1591565281/Honey_fsghft.png",
+    alcohol: "4.5-5.8 %",
+    ibu: "30.0-35.0",
+    og: "1.050-1.060",
+    fg: "1.005-1.015",
+    sinStock: true,
+  },
+  {
+    name: "Irish Red",
+    imageSrc:
+      "https://res.cloudinary.com/duli/image/upload/v1591565281/Irish-Red_brdejm.png",
+    alcohol: "8.0–12.0 %",
+    ibu: "50.0–85.0",
+    og: "1.075 – 1.11",
+    fg: "1.018 – 1.030",
+    sinStock: false,
+  },
+  {
+    name: "Kölsch",
+    imageSrc:
+      "https://res.cloudinary.com/duli/image/upload/v1591565282/Kolsch_bmqcel.png",
+    alcohol: "3.5–5.0 %",
+    ibu: "18.0-30.0",
+    og: "1.044–1.050",
+    fg: "1.007–1.011",
+    sinStock: true,
+  },
+];
+
 document.addEventListener("DOMContentLoaded", cargarTabla);
 
 async function cargarTabla() {
@@ -75,7 +138,7 @@ async function cargarTabla() {
   }
 };*/
 
-async function agregar_1_cerveza() {
+async function agregar_1_cerveza(event) {
   event.preventDefault();
 
   let nuevaCerveza = {
@@ -114,11 +177,12 @@ function restar_1_cerveza() {
   cargarTabla();
 }
 
-function agregar_3_cervezas() {
+async function agregar_3_cervezas(event) {
   let bucle_number = document.getElementById("bucle-number").value;
 
   for (let i = 0; i < bucle_number; i++) {
-    agregar_1_cerveza();
+    console.log('bucle')
+    await agregar_1_cerveza(event);
   }
   //limpiarForm();
 }
