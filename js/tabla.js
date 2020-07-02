@@ -64,6 +64,7 @@ let mockCervezas = [
 ];
 
 let cervezas = [];
+let cervezasFiltradas = [];
 
 document.addEventListener("DOMContentLoaded", cargarTabla);
 
@@ -76,7 +77,7 @@ async function cargarTabla() {
   console.log(filtroAlcoholActivo);
   console.log(filtroStockActivo);
   table.innerHTML = "";
-  mensaje.innerHTML = "";
+  mensaje.innerHTML = "";  
 
   try {
     let response = await fetch(
@@ -113,9 +114,8 @@ async function cargarTabla() {
         let tableBody = table.createTBody();
         tableBody.id = "tabla-body";
 
-        let cervezasFiltradas = [...cervezas];
-        let cerv2
-        let cerv3
+        cervezasFiltradas = [...cervezas];
+
         if (filtroStockActivo) {
           cervezasFiltradas = cervezasFiltradas.filter(
             cerveza => cerveza.thing.sinStock === false
@@ -127,8 +127,7 @@ async function cargarTabla() {
             cerveza => cerveza.thing.alcohol < 5
           );
         }
-        console.log(cerv2);
-        console.log(cerv3);
+
         for (let i = 0; i < cervezasFiltradas.length; i++) {
           let row = tableBody.insertRow();
           for (key in cervezasFiltradas[i].thing) {
@@ -151,13 +150,13 @@ async function cargarTabla() {
           editButton.classList.add("table-button");
           editButton.innerHTML = "Editar";
           editButton.addEventListener("click", () =>
-            editar_cerveza(cervezas[i]._id, i)
+            editar_cerveza(cervezasFiltradas[i]._id, i)
           );
           let deleteButton = document.createElement("BUTTON");
           deleteButton.classList.add("table-button");
           deleteButton.innerHTML = "Borrar";
           deleteButton.addEventListener("click", () =>
-            borrar_cerveza(cervezas[i]._id)
+            borrar_cerveza(cervezasFiltradas[i]._id)
           );
           divEl.appendChild(editButton);
           divEl.appendChild(deleteButton);
@@ -174,14 +173,6 @@ async function cargarTabla() {
     console.log(error);
   }
 }
-
-/*let limpiarForm = () => {
-  let form = document.querySelector("#tabla-comparacion");
-  let inputs = form.querySelectorAll("input");
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[i].value = "";
-  }
-};*/
 
 async function agregar_1_cerveza(event) {
   event.preventDefault();
@@ -237,7 +228,6 @@ async function agregar_3_cervezas(event) {
   for (let i = 0; i < bucle_number; i++) {
     await agregar_1_cerveza(event);
   }
-  //limpiarForm();
 }
 
 async function resetear_cervezas() {
@@ -261,12 +251,12 @@ async function editar_cerveza(id, index) {
   console.log(inputsFilaEditada[0].value);
   let cervezaEditada = {
     name: inputsFilaEditada[0].value,
-    imageSrc: cervezas[index].thing.imageSrc,
+    imageSrc: cervezasFiltradas[index].thing.imageSrc,
     alcohol: inputsFilaEditada[1].value,
     ibu: inputsFilaEditada[2].value,
     og: inputsFilaEditada[3].value,
     fg: inputsFilaEditada[4].value,
-    sinStock: cervezas[index].thing.sinStock,
+    sinStock: cervezasFiltradas[index].thing.sinStock,
   };
   let response = await fetch(
     `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${id}`,
