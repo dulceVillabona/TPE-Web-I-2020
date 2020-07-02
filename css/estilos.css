@@ -150,14 +150,14 @@ footer li {
 }
 
 footer p,
-.nav-del-footer {
+footer ul li a {
   font-size: small;
   text-decoration: none;
   color: white;
   text-shadow: 2px 2px black;
   text-align: center;
 }
-.nav-del-footer:hover {
+footer ul li a:hover {
   color: #ffaf11;
 }
 
@@ -190,7 +190,7 @@ footer .red-social-icon:hover {
     font-size: 2.5vh;
   }
   footer p,
-  .nav-del-footer {
+  footer ul li a {
     font-size: 2.5vh;
   }
 }
@@ -613,6 +613,10 @@ footer .red-social-icon:hover {
   font-size: 25px;
 }
 
+.filtros-div label {
+  font-size: 16px;
+}
+
 table {
   margin: 0 auto;
   font-size: 15px;
@@ -632,7 +636,8 @@ td input {
   border: none;
   text-align: center;
   color: white;
-  font-size: 15px;
+  font-size: 8px;
+  width: 4em;
 }
 
 td input:focus {
@@ -648,10 +653,10 @@ td input:focus {
 
 .table-button {
   color: white;
-  font-size: 15px;
+  font-size: 8px;
   background-color: #ffb0114d;
   border: none;
-  padding: 8px;
+  padding: 3px;
 }
 
 .en_stock.mostrar {
@@ -661,6 +666,7 @@ td input:focus {
 th,
 td img {
   width: 5em;
+  font-size: 10px;
 }
 #seleccion-imagen-cerveza-tabla-form {
   margin-top: 3%;
@@ -728,16 +734,24 @@ th {
     font-size: 40px;
   }
 
+  .filtros-div label {
+    font-size: 1em;
+  }
+
   table {
     font-size: 18px;
   }
 
   th,
+  td input,
   td img {
     width: 8em;
+    font-size: 1em;
   }
-  td input {
-    font-size: 18px;
+
+  .table-button {
+    font-size: 1em;
+    padding: 8px;
   }
 
   #tabla-form .tabla-form-section div input {

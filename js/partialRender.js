@@ -1,7 +1,7 @@
 "use strict";
 
 const URL =
-  "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/pruebas";
+  "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas";
 
 let contenedor = document.querySelector("#contenedor");
 let mensajeCarga = document.createElement("H1");
@@ -142,7 +142,11 @@ async function tablaPage(event) {
       let cervezas = [];
       let cervezasFiltradas = [];
 
-      document.addEventListener("DOMContentLoaded", cargarTabla);
+      // contenido.addEventListener("onload", cargarTabla);
+      cargarTabla();
+      // setInterval(() => {
+      //   cargarTabla();
+      // }, 10000);
 
       async function cargarTabla() {
         let mensaje = document.getElementById("sin-cervezas");
@@ -207,7 +211,7 @@ async function tablaPage(event) {
 
               for (let i = 0; i < cervezasFiltradas.length; i++) {
                 let row = tableBody.insertRow();
-                for (key in cervezasFiltradas[i].thing) {
+                for (let key in cervezasFiltradas[i].thing) {
                   if (key !== "sinStock") {
                     let cell = row.insertCell();
                     if (key === "imageSrc") {
