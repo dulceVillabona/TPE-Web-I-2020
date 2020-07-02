@@ -5,17 +5,17 @@ let mockCervezas = [
     name: "American Ipa",
     imageSrc:
       "https://res.cloudinary.com/duli/image/upload/v1591565278/American_IPA_yzg7g8.png",
-    alcohol: "5.5-7.5 %",
+    alcohol: 5.5,
     ibu: "40.0-65.0",
     og: "1.056-1.075",
     fg: "1.010-1.018",
-    sinStock: false,
+    sinStock: true,
   },
   {
     name: "Belgian Stout",
     imageSrc:
       "https://res.cloudinary.com/duli/image/upload/v1591565277/Belgian-Stout_yxbqcd.png",
-    alcohol: "6.0-7.5 %",
+    alcohol: 6.0,
     ibu: "20.0-30.0",
     og: "1.062-1.075",
     fg: "1.008-1.016",
@@ -25,7 +25,7 @@ let mockCervezas = [
     name: "Golden Ale",
     imageSrc:
       "https://res.cloudinary.com/duli/image/upload/v1591565279/Golden_Ale_egqxw3.png",
-    alcohol: "4.2-5.0 %",
+    alcohol: 4.2,
     ibu: "20.0-25.0",
     og: "1.041-1.050",
     fg: "1.009-1.018",
@@ -35,7 +35,7 @@ let mockCervezas = [
     name: "Honey",
     imageSrc:
       "https://res.cloudinary.com/duli/image/upload/v1591565281/Honey_fsghft.png",
-    alcohol: "4.5-5.8 %",
+    alcohol: 4.5,
     ibu: "30.0-35.0",
     og: "1.050-1.060",
     fg: "1.005-1.015",
@@ -45,7 +45,7 @@ let mockCervezas = [
     name: "Irish Red",
     imageSrc:
       "https://res.cloudinary.com/duli/image/upload/v1591565281/Irish-Red_brdejm.png",
-    alcohol: "8.0–12.0 %",
+    alcohol: 8.0,
     ibu: "50.0–85.0",
     og: "1.075 – 1.11",
     fg: "1.018 – 1.030",
@@ -55,11 +55,11 @@ let mockCervezas = [
     name: "Kölsch",
     imageSrc:
       "https://res.cloudinary.com/duli/image/upload/v1591565282/Kolsch_bmqcel.png",
-    alcohol: "3.5–5.0 %",
+    alcohol: 3.5,
     ibu: "18.0-30.0",
     og: "1.044–1.050",
     fg: "1.007–1.011",
-    sinStock: true,
+    sinStock: false,
   },
 ];
 
@@ -70,10 +70,13 @@ document.addEventListener("DOMContentLoaded", cargarTabla);
 async function cargarTabla() {
   let mensaje = document.getElementById("sin-cervezas");
   let table = document.querySelector("#tabla-comparacion");
-  let switchDiv = document.getElementById("stock-switch");
+  let filtroStockActivo = document.getElementById("en-stock-filtro").checked;
+  let filtroAlcoholActivo = document.getElementById("bajo-alcohol-filtro")
+    .checked;
+  console.log(filtroAlcoholActivo);
+  console.log(filtroStockActivo);
   table.innerHTML = "";
   mensaje.innerHTML = "";
-  switchDiv.classList.remove("ocultar");
 
   try {
     let response = await fetch(
@@ -82,6 +85,7 @@ async function cargarTabla() {
     if (response.ok) {
       let data = await response.json();
       cervezas = data.cervezas;
+
       if (cervezas.length > 0) {
         let crearThead = document.createElement("THEAD");
         let crearTR = document.createElement("TR");
@@ -89,7 +93,7 @@ async function cargarTabla() {
         let titulosThead = [
           "Cerveza",
           "Color",
-          "Alcohol",
+          "% Alcohol",
           "IBU",
           "OG",
           "FG",
@@ -109,20 +113,33 @@ async function cargarTabla() {
         let tableBody = table.createTBody();
         tableBody.id = "tabla-body";
 
-        for (let i = 0; i < cervezas.length; i++) {
+        let cervezasFiltradas = [...cervezas];
+        let cerv2
+        let cerv3
+        if (filtroStockActivo) {
+          cervezasFiltradas = cervezasFiltradas.filter(
+            cerveza => cerveza.thing.sinStock === false
+          );
+        }
+
+        if (filtroAlcoholActivo) {
+          cervezasFiltradas = cervezasFiltradas.filter(
+            cerveza => cerveza.thing.alcohol < 5
+          );
+        }
+        console.log(cerv2);
+        console.log(cerv3);
+        for (let i = 0; i < cervezasFiltradas.length; i++) {
           let row = tableBody.insertRow();
-          if (cervezas[i].thing.sinStock === false) {
-            row.classList.add("en_stock");
-          }
-          for (key in cervezas[i].thing) {
+          for (key in cervezasFiltradas[i].thing) {
             if (key !== "sinStock") {
               let cell = row.insertCell();
               if (key === "imageSrc") {
-                cell.innerHTML = `<img src=${cervezas[i].thing[key]} alt=${cervezas[i].thing.name} />`;
+                cell.innerHTML = `<img src=${cervezasFiltradas[i].thing[key]} alt=${cervezasFiltradas[i].thing.name} />`;
               } else {
                 let inputEl = document.createElement("INPUT");
                 inputEl.classList.add("input-tabla-cervezas");
-                inputEl.value = cervezas[i].thing[key];
+                inputEl.value = cervezasFiltradas[i].thing[key];
                 cell.appendChild(inputEl);
               }
             }
@@ -237,24 +254,11 @@ async function resetear_cervezas() {
   cargarTabla();
 }
 
-function filtrar_cervezas() {
-  let switchButton = document.getElementById("mostrar-stock");
-  let cervezas_en_stock = document.querySelectorAll(".en_stock");
-  if (switchButton.checked) {
-    for (let i = 0; i < cervezas_en_stock.length; i++) {
-      cervezas_en_stock[i].classList.add("en_stock", "mostrar");
-    }
-  } else {
-    for (let i = 0; i < cervezas_en_stock.length; i++) {
-      cervezas_en_stock[i].classList.remove("mostrar");
-    }
-  }
-}
-
 async function editar_cerveza(id, index) {
   let tableBody = document.querySelector("tbody");
   let filaEditada = tableBody.querySelectorAll("tr")[index];
   let inputsFilaEditada = filaEditada.querySelectorAll("input");
+  console.log(inputsFilaEditada[0].value);
   let cervezaEditada = {
     name: inputsFilaEditada[0].value,
     imageSrc: cervezas[index].thing.imageSrc,
@@ -269,7 +273,7 @@ async function editar_cerveza(id, index) {
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({thing: cervezaEditada}),
+      body: JSON.stringify({ thing: cervezaEditada }),
     }
   );
   if (response.ok) {
@@ -282,10 +286,10 @@ async function borrar_cerveza(id) {
     `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${id}`,
     {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     }
   );
-  if(response.ok) {
+  if (response.ok) {
     cargarTabla();
   }
 }
@@ -303,5 +307,8 @@ document
   .getElementById("reset-button")
   .addEventListener("click", resetear_cervezas);
 document
-  .getElementById("mostrar-stock")
-  .addEventListener("change", filtrar_cervezas);
+  .getElementById("en-stock-filtro")
+  .addEventListener("click", cargarTabla);
+document
+  .getElementById("bajo-alcohol-filtro")
+  .addEventListener("click", cargarTabla);

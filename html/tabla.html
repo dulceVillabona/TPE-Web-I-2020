@@ -32,12 +32,15 @@
     </header>
     <article id="table-article">
       <h2>TABLA DE COMPARACIÓN</h2>
-      <div id="stock-switch">
-        <p>Mostrar cervezas en stock</p>
-        <label class="switch">
-          <input type="checkbox" id="mostrar-stock">
-          <span class="slider round"></span>
-        </label>
+      <div class="filtros-div">
+        <div class="filtro-par">
+          <input type="checkbox" name="en-stock" id="en-stock-filtro">
+          <label for="">Mostrar solo cervezas en stock</label>
+        </div>
+        <div class="filtro-par">
+          <input type="checkbox" name="bajo-alcohol" id="bajo-alcohol-filtro">
+          <label for="">Mostrar cervezas bajo contenido alcohólico (menor a 5%)</label>
+        </div>        
       </div>
       <table id="tabla-comparacion">
       </table>
