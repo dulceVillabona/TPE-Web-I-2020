@@ -1,6 +1,7 @@
 "use strict";
 
-const URL = "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/pruebas";
+const URL =
+  "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/pruebas";
 
 let contenedor = document.querySelector("#contenedor");
 let mensajeCarga = document.createElement("H1");
@@ -9,429 +10,495 @@ mensajeCarga.innerHTML = "Loading..";
 
 //                                                                  PRIMER PARTIAL RENDER DE LA PAGINA
 
-setTimeout(function() { homePage(); }, 0);
-
+setTimeout(function () {
+  homePage();
+}, 0);
 
 //                                                                  PARTIAL RENDER DE HOME
 
 let homeLinks = document.getElementsByClassName("home-page");
 for (let i = 0; i < homeLinks.length; i++) {
-    homeLinks[i].addEventListener("click", homePage);
+  homeLinks[i].addEventListener("click", homePage);
 }
-
 
 async function homePage(event) {
-    //event.preventDefault();
-    contenedor.appendChild(mensajeCarga);
-    //console.log("se ejecuto")
-    try {
-        let response = await fetch("home.html");
-        if (response.ok) {
-            let contenido = await response.text();
-            contenedor.innerHTML = contenido;
-        } else {
-            console.log(response.status);
-            mensajeCarga.innerHTML = "Error "+ response.status;
-            contenedor.appendChild(mensajeCarga);
-        }
-        
-    } catch (error) {
-        console.log(error);
-        mensajeCarga.innerHTML = error;
-        contenedor.appendChild(mensajeCarga);
+  //event.preventDefault();
+  contenedor.appendChild(mensajeCarga);
+  //console.log("se ejecuto")
+  try {
+    let response = await fetch("home.html");
+    if (response.ok) {
+      let contenido = await response.text();
+      contenedor.innerHTML = contenido;
+    } else {
+      console.log(response.status);
+      mensajeCarga.innerHTML = "Error " + response.status;
+      contenedor.appendChild(mensajeCarga);
     }
+  } catch (error) {
+    console.log(error);
+    mensajeCarga.innerHTML = error;
+    contenedor.appendChild(mensajeCarga);
+  }
 }
-
 
 //                                                                  PARTIAL RENDER DE PRECIOS
 
 let preciosLinks = document.getElementsByClassName("precios-page");
 for (let i = 0; i < preciosLinks.length; i++) {
-    preciosLinks[i].addEventListener("click", preciosPage);
+  preciosLinks[i].addEventListener("click", preciosPage);
 }
 
 async function preciosPage(event) {
-    event.preventDefault();
-    contenedor.appendChild(mensajeCarga);
-    try {
-        let response = await fetch("precios.html");
-        if (response.ok) {
-            let contenido = await response.text();
-            contenedor.innerHTML = contenido;
-        } else {
-            console.log(response.status);
-            mensajeCarga.innerHTML = "Error "+ response.status;
-            contenedor.appendChild(mensajeCarga);
-        }
-    } catch (error) {
-        console.log(error);
-        mensajeCarga.innerHTML = error;
-        contenedor.appendChild(mensajeCarga);
+  event.preventDefault();
+  contenedor.appendChild(mensajeCarga);
+  try {
+    let response = await fetch("precios.html");
+    if (response.ok) {
+      let contenido = await response.text();
+      contenedor.innerHTML = contenido;
+    } else {
+      console.log(response.status);
+      mensajeCarga.innerHTML = "Error " + response.status;
+      contenedor.appendChild(mensajeCarga);
     }
+  } catch (error) {
+    console.log(error);
+    mensajeCarga.innerHTML = error;
+    contenedor.appendChild(mensajeCarga);
+  }
 }
-
 
 //                                                                  PARTIAL RENDER DE PACKS
 
 let packsLinks = document.getElementsByClassName("packs-page");
 for (let i = 0; i < packsLinks.length; i++) {
-    packsLinks[i].addEventListener("click", packsPage);
+  packsLinks[i].addEventListener("click", packsPage);
 }
 
 async function packsPage(event) {
-    event.preventDefault();
-    contenedor.appendChild(mensajeCarga);
-    try {
-        let response = await fetch("packs.html");
-        if (response.ok) {
-            let contenido = await response.text();
-            contenedor.innerHTML = contenido;
-        } else {
-            console.log(response.status);
-            mensajeCarga.innerHTML = "Error "+ response.status;
-            contenedor.appendChild(mensajeCarga);
-        }
-    } catch (error) {
-        console.log(error);
-        mensajeCarga.innerHTML = error;
-        contenedor.appendChild(mensajeCarga);
+  event.preventDefault();
+  contenedor.appendChild(mensajeCarga);
+  try {
+    let response = await fetch("packs.html");
+    if (response.ok) {
+      let contenido = await response.text();
+      contenedor.innerHTML = contenido;
+    } else {
+      console.log(response.status);
+      mensajeCarga.innerHTML = "Error " + response.status;
+      contenedor.appendChild(mensajeCarga);
     }
+  } catch (error) {
+    console.log(error);
+    mensajeCarga.innerHTML = error;
+    contenedor.appendChild(mensajeCarga);
+  }
 }
-
 
 //                                                                  PARTIAL RENDER DE KIT
 
 let kitLinks = document.getElementsByClassName("kit-page");
 for (let i = 0; i < kitLinks.length; i++) {
-    kitLinks[i].addEventListener("click", kitPage);
+  kitLinks[i].addEventListener("click", kitPage);
 }
 
 async function kitPage(event) {
-    event.preventDefault();
-    contenedor.appendChild(mensajeCarga);
-    try {
-        let response = await fetch("kit.html");
-        if (response.ok) {
-            let contenido = await response.text();
-            contenedor.innerHTML = contenido;
-        } else {
-            console.log(response.status);
-            mensajeCarga.innerHTML = "Error "+ response.status;
-            contenedor.appendChild(mensajeCarga);
-        }
-    } catch (error) {
-        console.log(error);
-        mensajeCarga.innerHTML = error;
-        contenedor.appendChild(mensajeCarga);
+  event.preventDefault();
+  contenedor.appendChild(mensajeCarga);
+  try {
+    let response = await fetch("kit.html");
+    if (response.ok) {
+      let contenido = await response.text();
+      contenedor.innerHTML = contenido;
+    } else {
+      console.log(response.status);
+      mensajeCarga.innerHTML = "Error " + response.status;
+      contenedor.appendChild(mensajeCarga);
     }
+  } catch (error) {
+    console.log(error);
+    mensajeCarga.innerHTML = error;
+    contenedor.appendChild(mensajeCarga);
+  }
 }
-
 
 //                                                                  PARTIAL RENDER DE TABLA
 
 let tablaLinks = document.getElementsByClassName("tabla-page");
 for (let i = 0; i < tablaLinks.length; i++) {
-    tablaLinks[i].addEventListener("click", tablaPage);
+  tablaLinks[i].addEventListener("click", tablaPage);
 }
 
 async function tablaPage(event) {
-    event.preventDefault();
-    contenedor.appendChild(mensajeCarga);
-    try {
-        let response = await fetch("tabla.html");
-        if (response.ok) {
-            let contenido = await response.text();
-            contenedor.innerHTML = contenido;
-            
-            
-            let cervezas = [
-                {
-                    name: "American Ipa",
-                    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565278/American_IPA_yzg7g8.png",
-                    alcohol: "5.5-7.5 %",
-                    ibu: "40.0-65.0",
-                    og: "1.056-1.075",
-                    fg: "1.010-1.018",
-                    sinStock: false,
-                },
-                {
-                    name: "Belgian Stout",
-                    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565277/Belgian-Stout_yxbqcd.png",
-                    alcohol: "6.0-7.5 %",
-                    ibu: "20.0-30.0",
-                    og: "1.062-1.075",
-                    fg: "1.008-1.016",
-                    sinStock: false,
-                },
-                {
-                    name: "Golden Ale",
-                    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565279/Golden_Ale_egqxw3.png",
-                    alcohol: "4.2-5.0 %",
-                    ibu: "20.0-25.0",
-                    og: "1.041-1.050",
-                    fg: "1.009-1.018",
-                    sinStock: true,
-                },
-                {
-                    name: "Honey",
-                    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565281/Honey_fsghft.png",
-                    alcohol: "4.5-5.8 %",
-                    ibu: "30.0-35.0",
-                    og: "1.050-1.060",
-                    fg: "1.005-1.015",
-                    sinStock: true,
-                },
-                {
-                    name: "Irish Red",
-                    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565281/Irish-Red_brdejm.png",
-                    alcohol: "8.0–12.0 %",
-                    ibu: "50.0–85.0",
-                    og: "1.075 – 1.11",
-                    fg: "1.018 – 1.030",
-                    sinStock: false,
-                },
-                {
-                    name: "Kölsch",
-                    imageSrc: "https://res.cloudinary.com/duli/image/upload/v1591565282/Kolsch_bmqcel.png",
-                    alcohol: "3.5–5.0 %",
-                    ibu: "18.0-30.0",
-                    og: "1.044–1.050",
-                    fg: "1.007–1.011",
-                    sinStock: true,
-                },
-            ];
-            
-            let Cervezas = [];
-            fetch(URL).then(function(r) {
-                return r.json();
-            }).then(function(json) {
-                for (const elem of json.pruebas) {
-                    Cervezas.push(elem._id);
-                }
-                setTimeout(function() { cargarTabla(); }, 10);
-            });
-            
-            async function cargarTabla() {
-                let mensaje = contenedor.querySelector("#sin-cervezas");
-                let table = contenedor.querySelector("#tabla-comparacion");
-                let switchDiv = contenedor.querySelector("#stock-switch");
-                table.innerHTML = "";
-                mensaje.innerHTML = "";
-                switchDiv.classList.remove("ocultar");
+  event.preventDefault();
+  contenedor.appendChild(mensajeCarga);
+  try {
+    let response = await fetch("tabla.html");
+    if (response.ok) {
+      let contenido = await response.text();
+      contenedor.innerHTML = contenido;
 
-                if (Cervezas.length > 0) {
-                    Cervezas = [];
-                    console.log(Cervezas);
-                    let crearThead = document.createElement("THEAD");
-                    let crearTR = document.createElement("TR");
-            
-                    let titulosThead = ["Cerveza", "Color", "Alcohol", "IBU", "OG", "FG"];
-            
-                    for (let i = 0; i < titulosThead.length; i++) {
-                        let nuevoTh = document.createElement("TH");
-                        nuevoTh.innerHTML = titulosThead[i];
-                        crearTR.appendChild(nuevoTh);
+      let cervezas = [];
+      let cervezasFiltradas = [];
+
+      document.addEventListener("DOMContentLoaded", cargarTabla);
+
+      async function cargarTabla() {
+        let mensaje = document.getElementById("sin-cervezas");
+        let table = document.querySelector("#tabla-comparacion");
+        let filtroStockActivo = document.getElementById("en-stock-filtro")
+          .checked;
+        let filtroAlcoholActivo = document.getElementById("bajo-alcohol-filtro")
+          .checked;
+        console.log(filtroAlcoholActivo);
+        console.log(filtroStockActivo);
+        table.innerHTML = "";
+        mensaje.innerHTML = "";
+
+        try {
+          let response = await fetch(
+            "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas"
+          );
+          if (response.ok) {
+            let data = await response.json();
+            cervezas = data.cervezas;
+
+            if (cervezas.length > 0) {
+              let crearThead = document.createElement("THEAD");
+              let crearTR = document.createElement("TR");
+
+              let titulosThead = [
+                "Cerveza",
+                "Color",
+                "% Alcohol",
+                "IBU",
+                "OG",
+                "FG",
+                "EDITAR/BORRAR",
+              ];
+
+              for (let i = 0; i < titulosThead.length; i++) {
+                let nuevoTh = document.createElement("TH");
+                nuevoTh.innerHTML = titulosThead[i];
+                crearTR.appendChild(nuevoTh);
+              }
+
+              crearThead.appendChild(crearTR);
+
+              table.appendChild(crearThead);
+
+              let tableBody = table.createTBody();
+              tableBody.id = "tabla-body";
+
+              cervezasFiltradas = [...cervezas];
+
+              if (filtroStockActivo) {
+                cervezasFiltradas = cervezasFiltradas.filter(
+                  (cerveza) => cerveza.thing.sinStock === false
+                );
+              }
+
+              if (filtroAlcoholActivo) {
+                cervezasFiltradas = cervezasFiltradas.filter(
+                  (cerveza) => cerveza.thing.alcohol < 5
+                );
+              }
+
+              for (let i = 0; i < cervezasFiltradas.length; i++) {
+                let row = tableBody.insertRow();
+                for (key in cervezasFiltradas[i].thing) {
+                  if (key !== "sinStock") {
+                    let cell = row.insertCell();
+                    if (key === "imageSrc") {
+                      cell.innerHTML = `<img src=${cervezasFiltradas[i].thing[key]} alt=${cervezasFiltradas[i].thing.name} />`;
+                    } else {
+                      let inputEl = document.createElement("INPUT");
+                      inputEl.classList.add("input-tabla-cervezas");
+                      inputEl.value = cervezasFiltradas[i].thing[key];
+                      cell.appendChild(inputEl);
                     }
-            
-                    crearThead.appendChild(crearTR);
-            
-                    table.appendChild(crearThead);
-            
-                    let tableBody = table.createTBody();
-                    tableBody.id = "tabla-body";
-
-                    try {
-                        let response = await fetch(URL);
-                        if (response.ok) {
-                            let json = await response.json();
-
-                            for (const elem of json.pruebas) {
-                                console.log(Cervezas);
-                                Cervezas.push(elem._id);
-                                let row = tableBody.insertRow();
-                                if (elem.thing.sinStock === false) {
-                                    row.classList.add("en_stock");
-                                }
-                                for (let key in elem.thing) {
-                                    if (key !== "sinStock") {
-                                        let cell = row.insertCell();
-                                        if (key === "imageSrc") {
-                                            cell.innerHTML = `<img src=${elem.thing[key]} alt=${elem.thing.name} />`;
-                                        } else {
-                                            cell.innerHTML = elem.thing[key];
-                                        }
-                                    }
-                                }
-                            }
-                            console.log(Cervezas);
-                        } else {
-                            table.innerHTML = "";
-                            mensaje.innerHTML = "Error";
-                        }
-                    } catch (error) {
-                        table.innerHTML = "";
-                        mensaje.innerHTML = error;
-                        console.log(error)
-                    }
-            
-                } else {
-                    mensaje.innerHTML = "No hay cervezas cargadas";
-                    switchDiv.classList.add("ocultar");
+                  }
                 }
-
+                let cell = row.insertCell();
+                let divEl = document.createElement("DIV");
+                divEl.classList.add("beer-buttons-div");
+                let editButton = document.createElement("BUTTON");
+                editButton.classList.add("table-button");
+                editButton.innerHTML = "Editar";
+                editButton.addEventListener("click", () =>
+                  editar_cerveza(cervezasFiltradas[i]._id, i)
+                );
+                let deleteButton = document.createElement("BUTTON");
+                deleteButton.classList.add("table-button");
+                deleteButton.innerHTML = "Borrar";
+                deleteButton.addEventListener("click", () =>
+                  borrar_cerveza(cervezasFiltradas[i]._id)
+                );
+                divEl.appendChild(editButton);
+                divEl.appendChild(deleteButton);
+                cell.appendChild(divEl);
+              }
+            } else {
+              mensaje.innerHTML = "No hay cervezas cargadas";
+              switchDiv.classList.add("ocultar");
             }
-
-            
-            function agregar_1_cerveza() {
-                Cervezas.push("p");
-                let nuevaCerveza = {
-                    "thing": {
-                    "name": contenedor.querySelector("#beer-name").value,
-                    "imageSrc": contenedor.querySelector('input[name="cervezaImg"]:checked').value,
-                    "alcohol": contenedor.querySelector("#beer-alcohol").value,
-                    "ibu": contenedor.querySelector("#beer-IBU").value,
-                    "og": contenedor.querySelector("#beer-OG").value,
-                    "fg": contenedor.querySelector("#beer-FG").value,
-                    "sinStock": contenedor.querySelector("#sin-stock").checked
-                    }
-                };
-                fetch(URL, {
-                    "method": 'POST',
-                    "headers": {'Content-Type': 'application/json'},
-                    "body": JSON.stringify(nuevaCerveza)
-                }).then(function(r) {
-                    return r.json();
-                }).then(function(json) {
-                    cargarTabla();
-                })
-            };
-            
-            function restar_1_cerveza() {
-                console.log(Cervezas[Cervezas.length-1]);
-                fetch(URL+"/"+Cervezas[Cervezas.length-1], {
-                    "method": 'DELETE',
-                }).then(function(r) {
-                    return r.json()
-                }).then(function(json) {
-                    cargarTabla();
-                    console.log(json);
-                    console.log(Cervezas);
-                })
-            }
-
-            function agregar_3_cervezas(event) {
-                let bucle_number = contenedor.querySelector("#bucle-number").value;
-                let mensaje = contenedor.querySelector("#sin-cervezas");
-                mensaje.innerHTML = "Espere un momento..";
-
-                for (let i = 0; i < bucle_number; i++) {
-                    console.log(Cervezas);
-                    agregar_1_cerveza();
-                }
-                setTimeout(function() {cargarTabla();}, 2000);
-            }
-
-            function resetear_cervezas(event) {
-                event.preventDefault();
-                for (let i = Cervezas.length-1; i >= 0; i--) {
-                    fetch(URL+"/"+Cervezas[i], {
-                        "method": 'DELETE',
-                    }).then(function(r) {
-                        return r.json();
-                    }).then(function(json) {
-                        console.log(json);
-                        cargarTabla();
-                    })
-                }
-            }
-
-            function filtrar_cervezas() {
-                let switchButton = document.getElementById("mostrar-stock");
-                let cervezas_en_stock = document.querySelectorAll(".en_stock");
-                if (switchButton.checked) {
-                    for (let i = 0; i < cervezas_en_stock.length; i++) {
-                        cervezas_en_stock[i].classList.add("en_stock", "mostrar");
-                    }
-                } else {
-                    for (let i = 0; i < cervezas_en_stock.length; i++) {
-                        cervezas_en_stock[i].classList.remove("mostrar");
-                    }
-                }
-            }
-
-            setInterval(function() {cargarTabla(); } , 10000);
-
-            contenedor
-            .querySelector("#sumar-button")
-            .addEventListener("click", agregar_1_cerveza);
-            contenedor
-            .querySelector("#restar-button")
-            .addEventListener("click", restar_1_cerveza);
-            contenedor
-            .querySelector("#sumar-bucle-button")
-            .addEventListener("click", agregar_3_cervezas);
-            contenedor
-            .querySelector("#reset-button")
-            .addEventListener("click", resetear_cervezas);
-            contenedor
-            .querySelector("#mostrar-stock")
-            .addEventListener("change", filtrar_cervezas);
-        } else {
-            console.log(response.status);
-            mensajeCarga.innerHTML = "Error "+ response.status;
-            contenedor.appendChild(mensajeCarga);
+          } else {
+            console.log(error);
+          }
+        } catch (error) {
+          console.log(error);
         }
-    } catch (error) {
-        console.log(error);
-        mensajeCarga.innerHTML = error;
-        contenedor.appendChild(mensajeCarga);
-    }
-}
+      }
 
+      async function agregar_1_cerveza(event) {
+        event.preventDefault();
+
+        let nuevaCerveza = {
+          name: document.getElementById("beer-name").value,
+          imageSrc: document.querySelector('input[name="cervezaImg"]:checked')
+            .value,
+          alcohol: document.getElementById("beer-alcohol").value,
+          ibu: document.getElementById("beer-IBU").value,
+          og: document.getElementById("beer-OG").value,
+          fg: document.getElementById("beer-FG").value,
+          sinStock: document.getElementById("sin-stock").checked,
+        };
+        let data = {
+          thing: nuevaCerveza,
+        };
+        try {
+          let response = await fetch(
+            "https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            }
+          );
+          if (response.ok) {
+            cargarTabla();
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      async function restar_1_cerveza() {
+        let response = await fetch(
+          `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${
+            cervezas[cervezas.length - 1]._id
+          }`,
+          {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: "",
+          }
+        );
+        if (response.ok) {
+          cargarTabla();
+        }
+      }
+
+      async function agregar_3_cervezas(event) {
+        let bucle_number = document.getElementById("bucle-number").value;
+
+        for (let i = 0; i < bucle_number; i++) {
+          await agregar_1_cerveza(event);
+        }
+      }
+
+      async function resetear_cervezas() {
+        for (let i = 0; i < cervezas.length; i++) {
+          await fetch(
+            `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${cervezas[i]._id}`,
+            {
+              method: "DELETE",
+              headers: { "Content-Type": "application/json" },
+              body: "",
+            }
+          );
+        }
+        cargarTabla();
+      }
+
+      async function editar_cerveza(id, index) {
+        let tableBody = document.querySelector("tbody");
+        let filaEditada = tableBody.querySelectorAll("tr")[index];
+        let inputsFilaEditada = filaEditada.querySelectorAll("input");
+        console.log(inputsFilaEditada[0].value);
+        let cervezaEditada = {
+          name: inputsFilaEditada[0].value,
+          imageSrc: cervezasFiltradas[index].thing.imageSrc,
+          alcohol: inputsFilaEditada[1].value,
+          ibu: inputsFilaEditada[2].value,
+          og: inputsFilaEditada[3].value,
+          fg: inputsFilaEditada[4].value,
+          sinStock: cervezasFiltradas[index].thing.sinStock,
+        };
+        let response = await fetch(
+          `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${id}`,
+          {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ thing: cervezaEditada }),
+          }
+        );
+        if (response.ok) {
+          cargarTabla();
+        }
+      }
+
+      async function borrar_cerveza(id) {
+        let response = await fetch(
+          `https://web-unicen.herokuapp.com/api/groups/58miguezvillabona/cervezas/${id}`,
+          {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        if (response.ok) {
+          cargarTabla();
+        }
+      }
+
+      document
+        .getElementById("sumar-button")
+        .addEventListener("click", agregar_1_cerveza);
+      document
+        .getElementById("restar-button")
+        .addEventListener("click", restar_1_cerveza);
+      document
+        .getElementById("sumar-bucle-button")
+        .addEventListener("click", agregar_3_cervezas);
+      document
+        .getElementById("reset-button")
+        .addEventListener("click", resetear_cervezas);
+      document
+        .getElementById("en-stock-filtro")
+        .addEventListener("click", cargarTabla);
+      document
+        .getElementById("bajo-alcohol-filtro")
+        .addEventListener("click", cargarTabla);
+    } else {
+      console.log(response.status);
+      mensajeCarga.innerHTML = "Error " + response.status;
+      contenedor.appendChild(mensajeCarga);
+    }
+  } catch (error) {
+    console.log(error);
+    mensajeCarga.innerHTML = error;
+    contenedor.appendChild(mensajeCarga);
+  }
+}
 
 //                                                                  PARTIAL RENDER DE CONTACTO
 
 let contactLinks = document.getElementsByClassName("contact-page");
 for (let i = 0; i < contactLinks.length; i++) {
-    contactLinks[i].addEventListener("click", contactPage);
+  contactLinks[i].addEventListener("click", contactPage);
 }
 
 async function contactPage(event) {
-    event.preventDefault();
-    contenedor.appendChild(mensajeCarga);
-    try {
-        let response = await fetch("contact.html");
-        if (response.ok) {
-            let contenido = await response.text();
-            contenedor.innerHTML = contenido;
-            setTimeout(function() { generateCaptcha(); }, 0)
-            contenedor.querySelector("#submit-button").addEventListener("click", validateCaptcha);
-            function generateCaptcha() {
-                let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-                let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-                let captchaValue = `${letters[Math.floor(Math.random(0,1) * 28)]} ${numbers[Math.floor(Math.random(0,1) * 10)]} ${letters[Math.floor(Math.random(0,1) * 28)]} ${numbers[Math.floor(Math.random(0,1) * 10)]} ${letters[Math.floor(Math.random(0,1) * 28)]}`;
-                contenedor.querySelector("#captcha-box").innerHTML = captchaValue;
-            }
+  event.preventDefault();
+  contenedor.appendChild(mensajeCarga);
+  try {
+    let response = await fetch("contact.html");
+    if (response.ok) {
+      let contenido = await response.text();
+      contenedor.innerHTML = contenido;
+      setTimeout(function () {
+        generateCaptcha();
+      }, 0);
+      contenedor
+        .querySelector("#submit-button")
+        .addEventListener("click", validateCaptcha);
+      function generateCaptcha() {
+        let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let letters = [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "n",
+          "ñ",
+          "o",
+          "p",
+          "q",
+          "r",
+          "s",
+          "t",
+          "u",
+          "v",
+          "w",
+          "x",
+          "y",
+          "z",
+          "A",
+          "B",
+          "C",
+          "D",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "Ñ",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z",
+        ];
+        let captchaValue = `${letters[Math.floor(Math.random(0, 1) * 28)]} ${
+          numbers[Math.floor(Math.random(0, 1) * 10)]
+        } ${letters[Math.floor(Math.random(0, 1) * 28)]} ${
+          numbers[Math.floor(Math.random(0, 1) * 10)]
+        } ${letters[Math.floor(Math.random(0, 1) * 28)]}`;
+        contenedor.querySelector("#captcha-box").innerHTML = captchaValue;
+      }
 
-            function validateCaptcha(event) {
-                event.preventDefault();
-                let captcha = (contenedor.querySelector("#captcha-box").innerHTML).replace(/ /g, "");
-                let captchaAnswer = contenedor.querySelector("#captcha-answer").value;
-                let errorMessage = contenedor.querySelector("#error-message");
-                if(captcha === captchaAnswer) {
-                    errorMessage.classList.remove("show");
-                    contenedor.querySelector("#contact-form").reset();
-                    generateCaptcha();
-                } else errorMessage.classList.add("show");
-            }
-        } else {
-            console.log(response.status);
-            mensajeCarga.innerHTML = "Error "+ response.status;
-            contenedor.appendChild(mensajeCarga);
-        }
-    } catch (error) {
-        console.log(error);
-        mensajeCarga.innerHTML = error;
-        contenedor.appendChild(mensajeCarga);
+      function validateCaptcha(event) {
+        event.preventDefault();
+        let captcha = contenedor
+          .querySelector("#captcha-box")
+          .innerHTML.replace(/ /g, "");
+        let captchaAnswer = contenedor.querySelector("#captcha-answer").value;
+        let errorMessage = contenedor.querySelector("#error-message");
+        if (captcha === captchaAnswer) {
+          errorMessage.classList.remove("show");
+          contenedor.querySelector("#contact-form").reset();
+          generateCaptcha();
+        } else errorMessage.classList.add("show");
+      }
+    } else {
+      console.log(response.status);
+      mensajeCarga.innerHTML = "Error " + response.status;
+      contenedor.appendChild(mensajeCarga);
     }
+  } catch (error) {
+    console.log(error);
+    mensajeCarga.innerHTML = error;
+    contenedor.appendChild(mensajeCarga);
+  }
 }

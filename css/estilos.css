@@ -6,13 +6,6 @@ body {
   margin: 0;
 }
 
-/*------------------------------------------- MENSAJE LOADING---------------------------- */
-
-#mensaje-carga {
-  margin: 25vh;
-  text-align: center;
-}
-
 /*--------------------------------------------HEADER--------------------------------------------*/
 
 header {
@@ -157,14 +150,14 @@ footer li {
 }
 
 footer p,
-footer a {
+.nav-del-footer {
   font-size: small;
   text-decoration: none;
   color: white;
   text-shadow: 2px 2px black;
   text-align: center;
 }
-footer a:hover {
+.nav-del-footer:hover {
   color: #ffaf11;
 }
 
@@ -265,7 +258,6 @@ footer .red-social-icon:hover {
 }
 
 @media only screen and (min-width: 500px) and (max-width: 999px) {
-
   .home-text {
     width: 75%;
   }
@@ -480,13 +472,11 @@ footer .red-social-icon:hover {
   padding-bottom: 20px;
   align-items: center;
   flex-direction: column;
-  justify-content: space-around;
 }
 
 .article-kit:last-of-type {
-  height: auto;
+  height: 100%;
   width: 100%;
-  margin-top: 25px;
 }
 
 .article-kit h2,
@@ -530,8 +520,8 @@ footer .red-social-icon:hover {
 }
 
 .imagen-kit {
-  width: 65%;  
-  margin: 0px auto;
+  width: 65%;
+  margin: 30px auto;
   display: block;
 }
 
@@ -547,7 +537,7 @@ footer .red-social-icon:hover {
   width: 70%;
 }
 
-#section-list{
+#section-list {
   width: 75%;
   margin: auto;
 }
@@ -556,9 +546,6 @@ footer .red-social-icon:hover {
   padding: 20px 0;
 }
 @media only screen and (min-width: 1000px) {
-  #haz-tu-cerveza-div {
-    height: 80vh;
-  }
   .div-article {
     margin-top: 100px;
   }
@@ -568,25 +555,23 @@ footer .red-social-icon:hover {
     width: 80%;
   }
 
-  #haz-tu-cerveza-img  {
+  #haz-tu-cerveza-img {
     width: 45%;
+    padding-top: 10%;
   }
 
   .subtitulo-article-kit {
     width: 60%;
-    margin: 5px auto 0 auto;
+    margin: 100px auto 0 auto;
     font-size: 40px;
   }
 
   .imagen-kit {
-    height: 35vh;
-    width: auto;
+    width: 50%;
   }
 
   #imagen-elementos-kit {
-    height: 70vh;
-    width: auto;
-    margin: 0;
+    width: 60%;
   }
 
   .parrafos-del-kit {
@@ -640,6 +625,33 @@ tr {
   border: 1px solid white;
   border-collapse: collapse;
   text-align: center;
+}
+
+td input {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+}
+
+td input:focus {
+  border: none;
+  background-color: #ffb0114d;
+}
+
+.beer-buttons-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.table-button {
+  color: white;
+  font-size: 15px;
+  background-color: #ffb0114d;
+  border: none;
+  padding: 8px;
 }
 
 .en_stock.mostrar {
@@ -696,72 +708,19 @@ th {
   justify-content: space-around;
 }
 
-#stock-switch {
-  min-width: 300px;
-  max-width: 545px;
-  margin: 0 auto 30px auto;
-  display: flex;
-  align-items: center;
+.filtros-div {
+  width: 70%;
+  margin: auto;
+  display: flex; 
+  flex-wrap: wrap; 
+  margin-bottom: 30px;
 }
 
-#stock-switch.ocultar {
-  display: none;
-}
-
-#stock-switch p {
+.filtro-par {
   color: white;
-  display: inline-block;
-  font-size: 15px;
-  margin-right: 40px;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #ffb0114d;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #ffb0114d;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
+  font-size: 20px;
+  width: 80%;
+  margin-bottom: 10px;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -777,19 +736,15 @@ input:checked + .slider:before {
   td img {
     width: 8em;
   }
+  td input {
+    font-size: 18px;
+  }
+
   #tabla-form .tabla-form-section div input {
     width: 45%;
   }
   .tabla-form-section button {
     margin: 10px 0;
-  }
-
-  #stock-switch {
-    max-width: 865px;
-  }
-
-  #stock-switch p {
-    font-size: 20px;
   }
 }
 
